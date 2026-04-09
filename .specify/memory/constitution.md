@@ -1,50 +1,41 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# OFS Freelancer Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Código Limpo
+Código legível, modular e manutenível. Nomes significativos para variáveis e funções, funções pequenas com responsabilidade única, sem duplicação de código. Comentários apenas quando justificam o "porquê", não o "o quê".
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. UX Simples
+Interfaces mínimas e intuitivas priorizando a funcionalidade essencial. Complexidade adicionada apenas quando rigorosamente justificada pelo valor ao usuário. Iteração rápida baseada em feedback real.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Design Responsivo
+Layouts que se adaptam fluentemente a todos os dispositivos e tamanhos de tela. Abordagem mobile-first: desenvolver primeiro para telas menores, expandir para maiores.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Dependências Mínimas
+Preferir soluções nativas da plataforma/linguagem ou bibliotecas leves e maduras. Cada dependência deve ser avaliada quanto a custo de manutenção, segurança e bundle size. Evitar dependências desnecessárias.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. SEO e Acessibilidade
+Acessibilidade não é opcional — é requisito fundamental. Compliance com WCAG 2.1 nível AA, semantic HTML, atributos ARIA quando necessário, contraste adequado, navegação por teclado. Performance otimizada para SEO (core web vitals).
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. Testes Pós-MVP
+Testes unitários e E2E serão implementados apenas após a finalização do MVP. Durante o desenvolvimento do MVP, o foco é em funcionalidade, validação manual e código que permita testes posteriores.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Restrições Técnicas
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- Sem testes automáticos durante desenvolvimento do MVP
+- Priorizar simplicidade e manutenibilidade sobre otimização prematura
+- Código deve ser testável mesmo sem testes formais durante a fase inicial
+- Dependencies must have clear purpose and minimal footprint
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Fluxo de Desenvolvimento
+
+- MVP primeiro: funcionalidade core antes de refinamentos
+- Validar manualmente em cada etapa antes de avançar
+- Código limpo desde o início para facilitar testes posteriores
+- Acessibilidade verificada em cada componente新的 UI
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+A constituição prevalece sobre todas as outras práticas. Emendas requerem justificativa documentada, aprovação via PR, e plano de migração se necessário. Versionamento segue semver: MAJOR para mudanças incompatíveis, MINOR para novos princípios, PATCH para esclarecimentos.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-04-09 | **Last Amended**: 2026-04-09
