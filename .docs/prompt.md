@@ -9,3 +9,23 @@
 ### Proximo passo
 
 integração de IA como um botão de agente de código que vai ser uma IA integrada a minha landing Page que ira tirar qualquer dúvida dos assuntos abordados na landing page na criação de sites, SEO etc.
+
+## PLAN
+
+Esse projeto deve ser Desenvolvido com
+
+- Next.js 16+,
+- TypeScript para tipagem,
+- shadcn-ui para componentes(input, button, card, sheet para o menu mobile, etc)
+- Dark Mode com shadcn-ui
+- TailwindCSS para estilização
+- PostgresSQL para Banco de Dados
+- Drizzle ORM
+- Better Auth para autenticação
+- Resend para envio de email
+- SDK da vercel para integração com chat de IA
+- Umami para a gestão de Analytics
+- Lucide react para ícones
+- React Hook Form para formulários
+- Zod para validação de formulários  
+  Quero usar o mcp do Stich para pegar o Design da interface ja desenvolvido
