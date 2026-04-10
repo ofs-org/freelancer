@@ -17,7 +17,7 @@ Como potencial cliente que busca serviços de criação de sites, ao acessar a l
 
 **Acceptance Scenarios**:
 
-1. **Given** usuário acessa a página pela primeira vez, **When** a página carrega completamente, **Then** ele visualiza headline principal, subtítulo e botões de CTA visíveis acima da dobra
+1. **Given** usuário acessa a página pela primeira vez, **When** a página carrega completamente, **Then** ele visualiza headline principal, subtítulo e botões de CTA visíveis no viewport de 375px (mobile) sem scroll
 2. **Given** usuário visualiza a seção Hero, **When** olha para os botões de CTA, **Then** compreende que há duas opções: solicitar orçamento ou receber auditoria gratuita
 
 ---
@@ -112,6 +112,16 @@ Como potencial cliente que prefere outras formas de contato, ao navegar até a p
 - O que acontece se o servidor de email estiver indisponível ao enviar checklist?
 - Como a IA lida com perguntas em idiomas diferente do português?
 - O que acontece se as imagens do portfólio falharem ao carregar?
+
+### Edge Case Handling
+
+| Edge Case | Handling |
+|------------|----------|
+| BD indisponível ao salvar lead | Queue request, retry up to 3 times, show friendly error |
+| Múltiplos envios mesmo email (checklist) | Mostrar "email já cadastrado" - não permitir re-download |
+| Servidor de email indisponível | Mostrar erro, permitir retry manual |
+| Perguntas em outros idiomas | IA responde em português indicando limitação |
+| Imagens portfólio falham | Mostrar placeholder com ícone de imagem |
 
 ## Requirements
 
