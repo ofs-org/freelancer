@@ -20,8 +20,8 @@
 **Purpose**: Project initialization and basic structure
 
 - [X] T001 Create project structure per implementation plan in src/
-- [ ] T002 Initialize Next.js 16+ project with TypeScript and required dependencies (shadcn-ui, TailwindCSS, Drizzle ORM, Better Auth, Resend, Vercel AI SDK, Lucide React, React Hook Form, Zod)
-- [ ] T003 [P] Configure linting and formatting tools (ESLint, Prettier)
+- [X] T002 Initialize Next.js 16+ project with TypeScript and required dependencies (shadcn-ui, TailwindCSS, Drizzle ORM, Better Auth, Resend, Vercel AI SDK, Lucide React, React Hook Form, Zod)
+- [X] T003 [P] Configure linting and formatting tools (ESLint, Prettier)
 - [ ] T004 [P] Configure TailwindCSS v4 with shadcn-ui theme
 - [ ] T005 Setup environment configuration (.env.example, .env.local)
 - [ ] T006 Configure PostgreSQL connection in src/lib/db.ts using Drizzle ORM
