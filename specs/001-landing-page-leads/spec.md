@@ -164,3 +164,12 @@ Como potencial cliente que prefere outras formas de contato, ao navegar até a p
 - O portfólio inicialmente terá 3-5 projetos demonstrativos que podem ser substituídos posteriormente
 - O WhatsApp usará API direta com link wa.me
 - O tracking será implementado com Google Analytics ou ferramenta similar
+
+## Clarifications
+
+### Session 2026-04-09
+
+- Q: Data protection framework → A: LGPD (Lei Geral de Proteção de Dados)
+- Q: External services failure modes → A: Database unavailable - queue requests (retry up to 3 times); Email unavailable - show error but allow retry; IA unavailable - show friendly fallback message
+- Q: Scalability targets (monthly visitors) → A: 10,000 unique visitors/month (MVP scope)
+- Q: Uptime SLA target → A: 99% availability (monthly basis)
