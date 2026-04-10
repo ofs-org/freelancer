@@ -214,7 +214,7 @@ Estilo: - Clean - Corporativo - Minimalista - Profissional
 
 ## Roadmap
 
-### MVP
+### MVP e Deploy
 
 - Hero
 - Problema
