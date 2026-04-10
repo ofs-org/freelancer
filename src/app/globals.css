@@ -1,26 +1,163 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f9f9f9;
+  --foreground: #1a1c1c;
+
+  --primary: #d0f336;
+  --primary-fixed: #cef134;
+  --primary-fixed-dim: #b3d406;
+  --on-primary: #ffffff;
+  --on-primary-container: #181e00;
+  --primary-container: #d0f336;
+  --surface-tint: #546500;
+  --inverse-primary: #b3d406;
+
+  --secondary: #566516;
+  --on-secondary: #ffffff;
+  --secondary-container: #d6e98b;
+  --on-secondary-container: #5a691a;
+  --secondary-fixed: #d9eb8e;
+  --secondary-fixed-dim: #bdcf75;
+  --on-secondary-fixed: #181e00;
+  --on-secondary-fixed-variant: #3f4c00;
+
+  --tertiary: #356575;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #bcecff;
+  --on-tertiary-container: #3d6c7c;
+  --tertiary-fixed: #baeafd;
+  --tertiary-fixed-dim: #9ecee0;
+  --on-tertiary-fixed: #001f28;
+  --on-tertiary-fixed-variant: #1a4d5c;
+
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+
+  --surface-container-lowest: #ffffff;
+  --surface: #f9f9f9;
+  --surface-bright: #f9f9f9;
+  --surface-container-low: #f3f3f3;
+  --surface-container: #eeeeee;
+  --surface-container-high: #e8e8e8;
+  --surface-container-highest: #e2e2e2;
+  --surface-dim: #dadada;
+  --surface-variant: #e2e2e2;
+  --outline: #767962;
+  --outline-variant: #c6c9ae;
+  --on-surface: #1a1c1c;
+  --on-surface-variant: #454934;
+  --on-background: #1a1c1c;
+
+  --inverse-surface: #2f3131;
+  --inverse-on-surface: #f1f1f1;
 }
 
 @theme inline {
+  --color-primary: var(--primary);
+  --color-primary-fixed: var(--primary-fixed);
+  --color-primary-fixed-dim: var(--primary-fixed-dim);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-primary-container: var(--primary-container);
+  --color-surface-tint: var(--surface-tint);
+  --color-inverse-primary: var(--inverse-primary);
+
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-secondary-fixed: var(--secondary-fixed);
+  --color-secondary-fixed-dim: var(--secondary-fixed-dim);
+  --color-on-secondary-fixed: var(--on-secondary-fixed);
+  --color-on-secondary-fixed-variant: var(--on-secondary-fixed-variant);
+
+  --color-tertiary: var(--tertiary);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+  --color-tertiary-fixed: var(--tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--tertiary-fixed-dim);
+  --color-on-tertiary-fixed: var(--on-tertiary-fixed);
+  --color-on-tertiary-fixed-variant: var(--on-tertiary-fixed-variant);
+
+  --color-error: var(--error);
+  --color-on-error: var(--on-error);
+  --color-error-container: var(--error-container);
+  --color-on-error-container: var(--on-error-container);
+
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface: var(--surface);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-variant: var(--surface-variant);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-on-background: var(--on-background);
+
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+
+  --radiusDEFAULT: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-full: 9999px;
+
+  --shadow-low: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 12px 32px rgba(26, 28, 28, 0.04);
+  --shadow-high: 0 40px 80px -15px rgba(0, 0, 0, 0.1);
+  --shadow-primary: 0 0 50px rgba(208, 243, 54, 0.4);
+
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #2f3131;
+    --foreground: #f1f1f1;
+
+    --surface-container-lowest: #1a1c1c;
+    --surface: #2f3131;
+    --surface-bright: #353535;
+    --surface-container-low: #2f3131;
+    --surface-container: #3a3a3a;
+    --surface-container-high: #454545;
+    --surface-container-highest: #505050;
+    --surface-dim: #5f5f5f;
+    --surface-variant: #5a5a5a;
+    --on-surface: #e2e2e2;
+    --on-surface-variant: #c4c4c4;
+    --on-background: #f1f1f1;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }

@@ -40,3 +40,4 @@ coverage/
 # Misc
 *.ts
 !*.d.ts
+node_modules
