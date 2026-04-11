@@ -98,6 +98,20 @@ pnpm biome format --write --organize-imports .
 - Keep components small and focused
 - Extract logic to custom hooks
 
+---
+
+## Atomic Design
+
+Ver [`.docs/atomic-design.md`](/.docs/atomic-design.md)
+
+---
+
+## Conventional Commits
+
+Ver [`.docs/conventional-commits.md`](/.docs/conventional-commits.md)
+
+---
+
 ## Links e Navegação
 
 - Use `Link` do Next.js para navegação interna
@@ -188,6 +202,8 @@ Run single test: `vitest run --filter "test-name"`
 
 Ao criar componentes UI, forms ou做任何 task, consulte:
 
+- **Atomic Design**: `.docs/atomic-design.md` - Estrutura de componentes
+- **Conventional Commits**: `.docs/conventional-commits.md` - Padrão de commits
 - **Design Tokens**: `.docs/design-tokens.md` - Cores, fontes, espaçamento, sombras
 - **UI Patterns**: `.docs/ui-patterns.md` - Padrões de componentes com CVA
 - **Acessibilidade**: `.docs/accessibility.md` - Boas práticas WCAG 2.1 AA
@@ -201,6 +217,8 @@ Ao criar componentes UI, forms ou做任何 task, consulte:
 2. Path aliases: `@/*` maps to `./src/*`
 3. Never commit secrets - use `.env.local`
 4. Run `pnpm biome check .` before committing
-5. **Antes de criar novos componentes**: Siga `.docs/ui-patterns.md`
-6. **Ao estilizar**: Use tokens de `.docs/design-tokens.md`
-7. **Acessibilidade**: Validate com `.docs/accessibility.md`
+5. **Estrutura de componentes**: Siga `.docs/atomic-design.md`
+6. **Commits**: Use `.docs/conventional-commits.md`
+7. **Antes de criar novos componentes**: Siga `.docs/ui-patterns.md`
+8. **Ao estilizar**: Use tokens de `.docs/design-tokens.md`
+9. **Acessibilidade**: Validate com `.docs/accessibility.md`
