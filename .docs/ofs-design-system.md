@@ -603,7 +603,7 @@ Sistema baseado em múltiplos de **4px**.
 </span>
 ```
 
-**Stack documentada no projeto:** `Next.js 14` · `React` · `Tailwind CSS` · `TypeScript` · `Node.js` · `PostgreSQL` · `Stripe` · `HubSpot` · `SSL / Data Privacy`
+**Stack documentada no projeto:** `Next.js 16` · `React 19` · `Tailwind CSS v4` · `TypeScript` · `Drizzle ORM` · `Better Auth` · `PostgreSQL` · `Resend` · `Vercel AI SDK` · `SSL / Data Privacy`
 
 ---
 
