@@ -41,7 +41,7 @@
 - [X] T011 [P] Configure Vercel AI SDK in src/lib/ai.ts
 - [X] T012 Setup error handling and logging infrastructure in src/lib/utils.ts
 - [X] T013 Create base UI components using shadcn-ui in src/components/ui/ (Button, Input, Textarea, Select, Card, Sheet, Dialog)
-- [ ] T014 [P] Setup React Hook Form with Zod validation schemas in src/lib/schemas.ts
+- [X] T014 [P] Setup React Hook Form with Zod validation schemas in src/lib/schemas.ts
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
