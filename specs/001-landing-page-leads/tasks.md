@@ -36,7 +36,7 @@
 
 - [X] T007 Create Drizzle schema in src/db/schema.ts (leads, checklist_leads, projetos, faqs tables)
 - [X] T008 [P] Setup database migrations with `pnpm run db:push`
-- [ ] T009 [P] Configure Better Auth in src/lib/auth.ts
+- [X] T009 [P] Configure Better Auth in src/lib/auth.ts
 - [ ] T010 [P] Setup Resend email configuration in src/lib/email.ts
 - [ ] T011 [P] Configure Vercel AI SDK in src/lib/ai.ts
 - [ ] T012 Setup error handling and logging infrastructure in src/lib/utils.ts
