@@ -1,77 +1,107 @@
+import {
+  Body,
+  Container,
+  Head,
+  Hr,
+  Html,
+  Link,
+  Section,
+  Text,
+} from "@react-email/components";
+
 interface ChecklistEmailProps {
   name: string;
 }
 
 export function ChecklistEmailTemplate({ name }: ChecklistEmailProps) {
   return (
-    <div
-      style={{
-        fontFamily: 'Plus Jakarta Sans, sans-serif',
-        maxWidth: '600px',
-        margin: '0 auto',
-        padding: '40px 20px',
-        backgroundColor: '#F9F9F9',
-      }}
-    >
-      <div
+    <Html>
+      <Head />
+      <Body
         style={{
-          backgroundColor: '#FFFFFF',
-          borderRadius: '16px',
-          padding: '40px',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+          fontFamily: '"Plus Jakarta Sans", sans-serif',
+          backgroundColor: "#F9F9F9",
         }}
       >
-        <h1
+        <Container
           style={{
-            color: '#1A1C1C',
-            fontSize: '24px',
-            fontWeight: 700,
-            marginBottom: '16px',
+            margin: "0 auto",
+            padding: "40px 20px",
+            maxWidth: "600px",
           }}
         >
-          Aqui está seu checklist!
-        </h1>
+          <Section
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "16px",
+              padding: "40px",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+            }}
+          >
+            <Text
+              style={{
+                color: "#1A1C1C",
+                fontSize: "24px",
+                fontWeight: 700,
+                marginBottom: "16px",
+              }}
+            >
+              Aqui está seu checklist!
+            </Text>
 
-        <p style={{ color: '#454934', fontSize: '16px', lineHeight: '1.6' }}>
-          Olá {name}, obrigado por baixar nosso checklist!
-        </p>
+            <Text
+              style={{
+                color: "#454934",
+                fontSize: "16px",
+                lineHeight: "1.6",
+              }}
+            >
+              Olá {name}, obrigado por baixar nosso checklist!
+            </Text>
 
-        <p
-          style={{
-            color: '#454934',
-            fontSize: '16px',
-            lineHeight: '1.6',
-            marginTop: '16px',
-          }}
-        >
-          Em anexo você encontrará o checklist com os 10 erros que fazem seu
-          site perder clientes.
-        </p>
+            <Text
+              style={{
+                color: "#454934",
+                fontSize: "16px",
+                lineHeight: "1.6",
+                marginTop: "16px",
+              }}
+            >
+              Em anexo você encontrará o checklist com os 07 erros que fazem seu
+              site perder clientes.
+            </Text>
 
-        <div
-          style={{
-            marginTop: '32px',
-            paddingTop: '24px',
-            borderTop: '1px solid #E2E2E2',
-          }}
-        >
-          <p style={{ color: '#454934', fontSize: '14px' }}>
-            Precisa de ajuda? Responda este email ou entre em contato pelo
-            WhatsApp.
-          </p>
-        </div>
-      </div>
+            <Hr
+              style={{
+                borderColor: "#E2E2E2",
+                margin: "24px 0",
+              }}
+            />
 
-      <p
-        style={{
-          textAlign: 'center',
-          color: '#767962',
-          fontSize: '12px',
-          marginTop: '24px',
-        }}
-      >
-        © 2024 OFS Freelancer. Todos os direitos reservados.
-      </p>
-    </div>
+            <Text style={{ color: "#454934", fontSize: "14px" }}>
+              Precisa de ajuda? Responda este email ou{" "}
+              <Link
+                href="https://wa.me/5511968336094"
+                style={{ color: "#566516" }}
+              >
+                entre em contato pelo WhatsApp
+              </Link>
+              .
+            </Text>
+          </Section>
+
+          <Text
+            style={{
+              textAlign: "center" as const,
+              color: "#767962",
+              fontSize: "12px",
+              marginTop: "24px",
+            }}
+          >
+            © 2026 OFS Freelancer. Todos os direitos reservados.
+          </Text>
+        </Container>
+      </Body>
+    </Html>
   );
 }

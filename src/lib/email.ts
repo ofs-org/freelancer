@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { Resend } from 'resend';
 
 const apiKey = process.env.RESEND_API_KEY;
@@ -13,20 +14,46 @@ export const fromEmail =
     ? 'OFS Freelancer <contato@ofsfreelancer.com>'
     : 'onboarding@resend.dev';
 
+export interface EmailAttachment {
+  filename: string;
+  content: string | Buffer;
+  contentType?: string;
+}
+
+interface SendEmailParams {
+  to: string | string[];
+  subject: string;
+  html: string;
+  text?: string;
+  replyTo?: string;
+  attachments?: EmailAttachment[];
+}
+
 export async function sendEmail({
   to,
   subject,
   html,
   text,
   replyTo,
-}: {
-  to: string | string[];
-  subject: string;
-  html: string;
-  text?: string;
-  replyTo?: string;
-}): Promise<{ success: boolean; error?: string }> {
+  attachments,
+}: SendEmailParams): Promise<{ success: boolean; error?: string }> {
   try {
+    const processedAttachments = attachments?.map((attachment) => {
+      let contentBase64: string;
+
+      if (typeof attachment.content === 'string') {
+        contentBase64 = attachment.content;
+      } else {
+        contentBase64 = attachment.content.toString('base64');
+      }
+
+      return {
+        filename: attachment.filename,
+        content: contentBase64,
+        contentType: attachment.contentType,
+      };
+    });
+
     const { data, error } = await resend.emails.send({
       from: fromEmail,
       to,
@@ -34,6 +61,7 @@ export async function sendEmail({
       html,
       text,
       replyTo,
+      attachments: processedAttachments,
     });
 
     if (error) {
@@ -48,4 +76,8 @@ export async function sendEmail({
     console.error('Failed to send email:', message);
     return { success: false, error: message };
   }
+}
+
+export function readAttachmentFromPath(filePath: string): Buffer {
+  return readFileSync(filePath);
 }
