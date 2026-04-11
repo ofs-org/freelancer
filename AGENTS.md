@@ -98,6 +98,24 @@ pnpm biome format --write --organize-imports .
 - Keep components small and focused
 - Extract logic to custom hooks
 
+## Links e Navegação
+
+- Use `Link` do Next.js para navegação interna
+- Use `Link` com `target="_blank"` para links externos
+- Tag `<a>` apenas para casos específicos
+
+```typescript
+import Link from 'next/link';
+
+// Navegação interna
+<Link href="/contato">Contato</Link>
+
+// Link externo
+<Link href="https://external.com" target="_blank" rel="noopener noreferrer">
+  Site Externo
+</Link>
+```
+
 ---
 
 ## Error Handling
@@ -166,9 +184,23 @@ Run single test: `vitest run --filter "test-name"`
 
 ---
 
+## Documentação de Referência
+
+Ao criar componentes UI, forms ou做任何 task, consulte:
+
+- **Design Tokens**: `.docs/design-tokens.md` - Cores, fontes, espaçamento, sombras
+- **UI Patterns**: `.docs/ui-patterns.md` - Padrões de componentes com CVA
+- **Acessibilidade**: `.docs/accessibility.md` - Boas práticas WCAG 2.1 AA
+- **Copy**: `.docs/copy.md` - Textos e mensagens do projeto
+
+---
+
 ## Key Notes
 
 1. **Next.js 16** - Check breaking changes in `node_modules/next/dist/docs/`
 2. Path aliases: `@/*` maps to `./src/*`
 3. Never commit secrets - use `.env.local`
 4. Run `pnpm biome check .` before committing
+5. **Antes de criar novos componentes**: Siga `.docs/ui-patterns.md`
+6. **Ao estilizar**: Use tokens de `.docs/design-tokens.md`
+7. **Acessibilidade**: Validate com `.docs/accessibility.md`

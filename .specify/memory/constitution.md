@@ -34,6 +34,13 @@ Testes unitários e E2E serão implementados apenas após a finalização do MVP
 - Código limpo desde o início para facilitar testes posteriores
 - Acessibilidade verificada em cada componente新的 UI
 
+## Referências
+
+Ao criar componentes UI, consulte:
+- **Design Tokens**: `.docs/design-tokens.md` - Cores, fontes, shadowss
+- **UI Patterns**: `.docs/ui-patterns.md` - Padrões de componentes com CVA
+- **Acessibilidade**: `.docs/accessibility.md` - Boas práticas WCAG 2.1 AA
+
 ## Governance
 
 A constituição prevalece sobre todas as outras práticas. Emendas requerem justificativa documentada, aprovação via PR, e plano de migração se necessário. Versionamento segue semver: MAJOR para mudanças incompatíveis, MINOR para novos princípios, PATCH para esclarecimentos.
