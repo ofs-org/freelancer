@@ -1,12 +1,13 @@
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
-import { env } from "process";
+import { env } from 'node:process';
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
+import * as schema from '@/db/schema';
 
 const connectionString = env.DATABASE_URL;
 
 if (!connectionString) {
-  throw new Error("DATABASE_URL environment variable is not set");
+  throw new Error('DATABASE_URL environment variable is not set');
 }
 
 const queryClient = postgres(connectionString);
-export const db = drizzle(queryClient);
+export const db = drizzle(queryClient, { schema });

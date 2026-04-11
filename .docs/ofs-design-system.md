@@ -263,6 +263,116 @@ Sistema baseado em múltiplos de **4px**.
 
 ---
 
+### Select
+
+```html
+<Select
+  label="Assunto"
+  placeholder="Selecione uma opção"
+  options={[
+    { value: 'criacao_site', label: 'Criação de site institucional' },
+    { value: 'landing_page', label: 'Criação de landing page' },
+    { value: 'analise_site', label: 'Análise do meu site' },
+  ]}
+/>
+```
+
+#### Estados
+
+| Estado   | Border                | Ring                     |
+| -------- | --------------------- | ------------------------ |
+| Default  | `outline-variant`     | Nenhum                   |
+| Focus    | `primary` (`#D0F336`) | `ring-2 ring-primary/50` |
+| Error    | `error` (`#BA1A1A`)   | `ring-2 ring-error/20`   |
+| Disabled | `outline-variant/30`  | Nenhum, `opacity-50`     |
+
+#### Props
+
+| Prop | Tipo | Obrigatório | Descrição |
+|------|------|-------------|-----------|
+| label | string | Não | Label exibida acima do select |
+| placeholder | string | Não | Texto da primeira opção (disabled) |
+| options | Array<{value, label}> | Sim | Lista de opções |
+| error | string | Não | Mensagem de erro exibida abaixo |
+| variant | default, error, disabled | Não | Estado visual |
+| id | string | Não | ID customizado (gerado automaticamente se omitido) |
+
+---
+
+### Dialog
+
+```html
+<Dialog open={open} onOpenChange={setOpen}>
+  <DialogTrigger asChild>
+    <Button variant="primary">Abrir Dialog</Button>
+  </DialogTrigger>
+  <DialogContent open={open}>
+    <DialogHeader>
+      <DialogTitle>Título</DialogTitle>
+      <DialogDescription>Descrição</DialogDescription>
+    </DialogHeader>
+    <p>Conteúdo</p>
+    <DialogFooter>
+      <Button variant="secondary" size="sm">Cancelar</Button>
+      <Button variant="primary" size="sm">Confirmar</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+
+#### Variantes
+
+| Variante | Background | Borda | Uso |
+|----------|------------|-------|-----|
+| default | `surface-container-lowest` | `outline-variant/10` | Fundos claros |
+| glass | `inverse-surface/90` com blur | `white/10` | Fundos escuros/imagens |
+
+#### Tamanhos
+
+| Tamanho | Largura Máxima |
+|---------|---------------|
+| sm | 384px |
+| md | 448px |
+| lg | 512px |
+| xl | 576px |
+| full | 896px |
+
+---
+
+### Sheet
+
+```html
+<Sheet open={open} onOpenChange={setOpen}>
+  <SheetTrigger asChild>
+    <Button variant="primary" onClick={() => setOpen(true)}>Menu</Button>
+  </SheetTrigger>
+  <SheetContent open={open} title="Menu" variant="default">
+    <nav className="space-y-2">
+      <button type="button">Início</button>
+      <button type="button">Serviços</button>
+    </nav>
+  </SheetContent>
+</Sheet>
+```
+
+#### Props
+
+| Prop | Tipo | Obrigatório | Descrição |
+|------|------|-------------|-----------|
+| title | string | Sim | Título exibido no header |
+| variant | default, glass | Não | Estilo visual |
+| showClose | boolean | Não | Mostrar botão de fechar (padrão: true) |
+
+#### Características
+
+- Sempre abre da **direita** (side: right)
+- Header com título + botão de fechar
+- Overlay com backdrop blur
+- Animação slide-in (300ms)
+- Glass variant para fundos escuros
+
+---
+
 ### Badges & Chips
 
 | Variante        | Background          | Texto                | Borda               |
@@ -603,7 +713,7 @@ Sistema baseado em múltiplos de **4px**.
 </span>
 ```
 
-**Stack documentada no projeto:** `Next.js 14` · `React` · `Tailwind CSS` · `TypeScript` · `Node.js` · `PostgreSQL` · `Stripe` · `HubSpot` · `SSL / Data Privacy`
+**Stack documentada no projeto:** `Next.js 16` · `React 19` · `Tailwind CSS v4` · `TypeScript` · `Drizzle ORM` · `Better Auth` · `PostgreSQL` · `Resend` · `Vercel AI SDK` · `SSL / Data Privacy`
 
 ---
 
@@ -746,6 +856,127 @@ Dois padrões de glass utilizados no projeto:
 ```
 
 **Regra de uso:** glass morphism é reservado exclusivamente para elementos posicionados sobre imagens ou fundos escuros (`#1a1c1c`, fotos, gradientes). Nunca usar sobre fundos brancos ou claros.
+
+---
+
+## Boas Práticas de Código
+
+Esta seção documenta os padrões de código e utilitários estabelecidos no projeto OFS Freelancer.
+
+### Logger (Pino)
+
+Biblioteca de logging estruturado utilizada no projeto.
+
+```typescript
+import logger, { createChildLogger, logError, logInfo } from '@/lib/logger';
+
+// Uso básico
+logInfo('Mensagem de info', { key: 'value' });
+logWarn('Aviso', { contexto: 'dados' });
+logError(error, { acao: 'falha' });
+
+// Child logger por módulo
+const authLogger = createChildLogger('auth');
+authLogger.info({ userId: '123' }, 'Login realizado');
+```
+
+**Configuração:**
+- Desenvolvimento: usa `pino-pretty` com cores
+- Produção: JSON estruturado
+- Nível configurável via `LOG_LEVEL`
+
+### Error Handling
+
+Classes de erro padronizadas para diferentes cenários.
+
+```typescript
+import { 
+  AppError, 
+  BadRequestError, 
+  NotFoundError, 
+  ValidationError 
+} from '@/lib/errors';
+
+// Uso em server actions
+if (!data) {
+  throw new NotFoundError('Recurso não encontrado');
+}
+
+if (invalidInput) {
+  throw new ValidationError('Dados inválidos', { campos: ['email'] });
+}
+```
+
+**Códigos de Erro:**
+
+| Código | Status | Uso |
+|--------|--------|-----|
+| `BAD_REQUEST` | 400 | Dados inválidos |
+| `UNAUTHORIZED` | 401 | Não autenticado |
+| `FORBIDDEN` | 403 | Sem permissão |
+| `NOT_FOUND` | 404 | Recurso não existe |
+| `CONFLICT` | 409 | Dados duplicados |
+| `VALIDATION_ERROR` | 422 | Validação falhou |
+| `INTERNAL_ERROR` | 500 | Erro geral |
+| `SERVICE_UNAVAILABLE` | 503 | Serviço indisponível |
+
+### Utilitários de Error
+
+Funções helper para tratamento de erros em API routes.
+
+```typescript
+import { handleError, errorResponse, asyncHandler } from '@/lib/utils';
+
+// Handler manual
+export function GET(request: Request) {
+  try {
+    // lógica
+  } catch (error) {
+    return errorResponse(error);
+  }
+}
+
+// Wrapper async (recomendado)
+export const GET = asyncHandler(async (request: Request) => {
+  // lógica que pode lançar erros
+});
+```
+
+### Função cn()
+
+Utilitário para merge de classes Tailwind.
+
+```typescript
+import { cn } from '@/lib/utils';
+
+// Combina classes condicionais
+<div className={cn(
+  'base-class',
+  isActive && 'active-class',
+  variant === 'primary' && 'bg-primary'
+)} />
+```
+
+---
+
+## Estrutura de Arquivos
+
+```
+src/lib/
+├── utils.ts       # cn(), handleError, errorResponse, asyncHandler
+├── errors.ts      # AppError, classes de erro, helpers
+├── logger.ts      # Pino logger, child loggers
+├── db.ts          # Drizzle client
+├── auth.ts        # Better Auth config
+├── email.ts       # Resend helpers
+└── ai.ts          # Vercel AI SDK config
+
+src/db/
+└── schema.ts      # Drizzle schema (leads, projetos, faqs, etc.)
+
+src/components/ui/
+└── button.tsx, input.tsx, card.tsx, etc.
+```
 
 ---
 

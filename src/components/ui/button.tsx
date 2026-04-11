@@ -15,10 +15,10 @@ const buttonVariants = cva(
         glass: 'glass-button text-white hover:bg-white/20 active:scale-95',
       },
       size: {
-        sm: 'px-3.5 py-1.5 text-xs rounded-md',
-        md: 'px-5 py-2.5 text-sm rounded-md',
-        lg: 'px-7 py-3.5 text-base rounded-md',
-        xl: 'px-12 py-5 text-lg rounded-lg',
+        sm: 'px-[14px] py-[7px] text-xs rounded-[8px]',
+        md: 'px-5 py-[10px] text-sm rounded-[16px]',
+        lg: 'px-[28px] py-[14px] text-base rounded-[16px]',
+        xl: 'px-[48px] py-5 text-lg rounded-[20px]',
       },
     },
     defaultVariants: {
