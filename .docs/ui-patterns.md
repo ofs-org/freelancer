@@ -66,15 +66,47 @@ export { componentVariants };
 ## Componentes Criados
 
 | Componente | Arquivo | Variantes | Tamanhos |
-|------------|---------|----------|----------|
+|------------|---------|-----------|----------|
 | Button | `src/components/ui/button.tsx` | primary, secondary, ghost, glass | sm, md, lg, xl |
 | Input | `src/components/ui/input.tsx` | default, error, disabled | - |
 | Textarea | `src/components/ui/textarea.tsx` | default, error, disabled | - |
 | Card | `src/components/ui/card.tsx` | default, elevated, glass, primary-container | - |
 | Badge | `src/components/ui/badge.tsx` | primary, secondary, tertiary, error, neutral, dark-pill, outline-primary | sm, md, lg |
-| Select | `src/components/ui/select.tsx` | - | - |
-| Sheet | `src/components/ui/sheet.tsx` | top, bottom, left, right | - |
-| Dialog | `src/components/ui/dialog.tsx` | - | - |
+| Select | `src/components/ui/select.tsx` | default, error, disabled | - |
+| Dialog | `src/components/ui/dialog.tsx` | default, glass | sm, md, lg, xl, full |
+| Sheet | `src/components/ui/sheet.tsx` | default, glass | - |
+
+### Button - Tamanhos oficiais (Design System)
+
+| Tamanho | Padding | Font Size | Border Radius |
+|---------|---------|-----------|---------------|
+| sm | `14px 7px` (h v) | 12px | 8px |
+| md | `20px 10px` (h v) | 14px | 16px |
+| lg | `28px 14px` (h v) | 16px | 16px |
+| xl | `48px 20px` (h v) | 18-20px | 20px |
+
+### Select - Estados
+
+| Estado | Descrição |
+|--------|-----------|
+| default | Borda outline-variant, foco com primary |
+| error | Borda error, texto de erro abaixo |
+| disabled | Opacidade 50%, cursor not-allowed |
+
+### Dialog - Variantes
+
+| Variante | Background | Borda | Uso |
+|----------|------------|-------|-----|
+| default | surface-container-lowest | outline-variant/10 | Fundos claros |
+| glass | inverse-surface/90 | white/10 | Fundos escuros/imagens |
+
+### Sheet - Configuração
+
+| Propriedade | Valores | Descrição |
+|-------------|---------|-----------|
+| variant | default, glass | Estilo visual |
+| side | right | Lado de abertura (só direita) |
+| title | string | Título obrigatório no header |
 
 ## Exemplo de Uso
 
@@ -94,7 +126,7 @@ import { cn } from '@/lib/utils';
   Enviar
 </Button>
 
-// Usando variantes em kondisiais
+// Usando variantes condicionais
 <Button 
   variant={isLoading ? 'secondary' : 'primary'}
   disabled={isLoading}

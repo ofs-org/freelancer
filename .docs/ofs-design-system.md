@@ -263,6 +263,116 @@ Sistema baseado em múltiplos de **4px**.
 
 ---
 
+### Select
+
+```html
+<Select
+  label="Assunto"
+  placeholder="Selecione uma opção"
+  options={[
+    { value: 'criacao_site', label: 'Criação de site institucional' },
+    { value: 'landing_page', label: 'Criação de landing page' },
+    { value: 'analise_site', label: 'Análise do meu site' },
+  ]}
+/>
+```
+
+#### Estados
+
+| Estado   | Border                | Ring                     |
+| -------- | --------------------- | ------------------------ |
+| Default  | `outline-variant`     | Nenhum                   |
+| Focus    | `primary` (`#D0F336`) | `ring-2 ring-primary/50` |
+| Error    | `error` (`#BA1A1A`)   | `ring-2 ring-error/20`   |
+| Disabled | `outline-variant/30`  | Nenhum, `opacity-50`     |
+
+#### Props
+
+| Prop | Tipo | Obrigatório | Descrição |
+|------|------|-------------|-----------|
+| label | string | Não | Label exibida acima do select |
+| placeholder | string | Não | Texto da primeira opção (disabled) |
+| options | Array<{value, label}> | Sim | Lista de opções |
+| error | string | Não | Mensagem de erro exibida abaixo |
+| variant | default, error, disabled | Não | Estado visual |
+| id | string | Não | ID customizado (gerado automaticamente se omitido) |
+
+---
+
+### Dialog
+
+```html
+<Dialog open={open} onOpenChange={setOpen}>
+  <DialogTrigger asChild>
+    <Button variant="primary">Abrir Dialog</Button>
+  </DialogTrigger>
+  <DialogContent open={open}>
+    <DialogHeader>
+      <DialogTitle>Título</DialogTitle>
+      <DialogDescription>Descrição</DialogDescription>
+    </DialogHeader>
+    <p>Conteúdo</p>
+    <DialogFooter>
+      <Button variant="secondary" size="sm">Cancelar</Button>
+      <Button variant="primary" size="sm">Confirmar</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+
+#### Variantes
+
+| Variante | Background | Borda | Uso |
+|----------|------------|-------|-----|
+| default | `surface-container-lowest` | `outline-variant/10` | Fundos claros |
+| glass | `inverse-surface/90` com blur | `white/10` | Fundos escuros/imagens |
+
+#### Tamanhos
+
+| Tamanho | Largura Máxima |
+|---------|---------------|
+| sm | 384px |
+| md | 448px |
+| lg | 512px |
+| xl | 576px |
+| full | 896px |
+
+---
+
+### Sheet
+
+```html
+<Sheet open={open} onOpenChange={setOpen}>
+  <SheetTrigger asChild>
+    <Button variant="primary" onClick={() => setOpen(true)}>Menu</Button>
+  </SheetTrigger>
+  <SheetContent open={open} title="Menu" variant="default">
+    <nav className="space-y-2">
+      <button type="button">Início</button>
+      <button type="button">Serviços</button>
+    </nav>
+  </SheetContent>
+</Sheet>
+```
+
+#### Props
+
+| Prop | Tipo | Obrigatório | Descrição |
+|------|------|-------------|-----------|
+| title | string | Sim | Título exibido no header |
+| variant | default, glass | Não | Estilo visual |
+| showClose | boolean | Não | Mostrar botão de fechar (padrão: true) |
+
+#### Características
+
+- Sempre abre da **direita** (side: right)
+- Header com título + botão de fechar
+- Overlay com backdrop blur
+- Animação slide-in (300ms)
+- Glass variant para fundos escuros
+
+---
+
 ### Badges & Chips
 
 | Variante        | Background          | Texto                | Borda               |

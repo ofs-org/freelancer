@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -8,8 +11,152 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
+import { Select } from '@/components/ui/select';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Textarea } from '@/components/ui/textarea';
+
+function DialogExample() {
+  const [open, setOpen] = useState(false);
+  const [glassOpen, setGlassOpen] = useState(false);
+
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-sm font-semibold text-on-surface-variant mb-4">
+          Default
+        </h2>
+        <div className="max-w-md">
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+              <Button variant="primary" onClick={() => setOpen(true)}>
+                Abrir Dialog
+              </Button>
+            </DialogTrigger>
+            <DialogContent open={open}>
+              <DialogHeader>
+                <DialogTitle>Título do Dialog</DialogTitle>
+                <DialogDescription>
+                  Descrição opcional do dialog.
+                </DialogDescription>
+              </DialogHeader>
+              <p className="text-on-surface">
+                Conteúdo principal do dialog aqui.
+              </p>
+              <DialogFooter>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => setOpen(false)}
+                >
+                  Cancelar
+                </Button>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={() => setOpen(false)}
+                >
+                  Confirmar
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="text-sm font-semibold text-on-surface-variant mb-4">
+          Glass
+        </h2>
+        <div className="bg-inverse-surface p-8 rounded-xl max-w-md">
+          <Dialog open={glassOpen} onOpenChange={setGlassOpen}>
+            <DialogTrigger asChild>
+              <Button variant="glass" onClick={() => setGlassOpen(true)}>
+                Abrir Glass Dialog
+              </Button>
+            </DialogTrigger>
+            <DialogContent open={glassOpen} variant="glass" size="lg">
+              <DialogHeader>
+                <DialogTitle className="text-white">Glass Modal</DialogTitle>
+                <DialogDescription className="text-white/70">
+                  Modal com efeito glass morphism.
+                </DialogDescription>
+              </DialogHeader>
+              <p className="text-white">
+                Ideal para fundos escuros e imagens de fundo.
+              </p>
+              <DialogFooter>
+                <Button
+                  variant="glass"
+                  size="sm"
+                  onClick={() => setGlassOpen(false)}
+                >
+                  Fechar
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SheetExample({ glass = false }: { glass?: boolean }) {
+  const [open, setOpen] = useState(false);
+
+  const variant = glass ? 'glass' : 'default';
+
+  return (
+    <div className="max-w-md">
+      <Button
+        variant={glass ? 'glass' : 'primary'}
+        onClick={() => setOpen(true)}
+      >
+        Abrir Sheet
+      </Button>
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetContent open={open} title="Menu" variant={variant}>
+          <nav className="space-y-2">
+            <button
+              type="button"
+              className={`block w-full text-left py-2 px-3 rounded-lg ${glass ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-on-surface hover:bg-surface-container'}`}
+            >
+              Início
+            </button>
+            <button
+              type="button"
+              className={`block w-full text-left py-2 px-3 rounded-lg ${glass ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-on-surface hover:bg-surface-container'}`}
+            >
+              Serviços
+            </button>
+            <button
+              type="button"
+              className={`block w-full text-left py-2 px-3 rounded-lg ${glass ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-on-surface hover:bg-surface-container'}`}
+            >
+              Portfolio
+            </button>
+            <button
+              type="button"
+              className={`block w-full text-left py-2 px-3 rounded-lg ${glass ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-on-surface hover:bg-surface-container'}`}
+            >
+              Contato
+            </button>
+          </nav>
+        </SheetContent>
+      </Sheet>
+    </div>
+  );
+}
 
 export default function DesignPage() {
   return (
@@ -771,6 +918,99 @@ export default function DesignPage() {
               <p className="text-sm text-on-surface-variant text-center">
                 High
               </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h1 className="text-4xl font-black text-on-surface mb-2">Select</h1>
+          <p className="text-on-surface-variant mb-8">
+            Campo de seleção com opções.
+          </p>
+
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-sm font-semibold text-on-surface-variant mb-4">
+                Default
+              </h2>
+              <div className="max-w-md">
+                <Select
+                  label="Assunto"
+                  placeholder="Selecione uma opção"
+                  options={[
+                    {
+                      value: 'criacao_site',
+                      label: 'Criação de site institucional',
+                    },
+                    { value: 'landing_page', label: 'Criação de landing page' },
+                    { value: 'analise_site', label: 'Análise do meu site' },
+                  ]}
+                />
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-sm font-semibold text-on-surface-variant mb-4">
+                With Error
+              </h2>
+              <div className="max-w-md">
+                <Select
+                  label="Serviço"
+                  variant="error"
+                  error="Selecione um serviço"
+                  options={[
+                    { value: 'site', label: 'Site' },
+                    { value: 'app', label: 'App' },
+                  ]}
+                />
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-sm font-semibold text-on-surface-variant mb-4">
+                Disabled
+              </h2>
+              <div className="max-w-md">
+                <Select
+                  label="Categoria"
+                  variant="disabled"
+                  options={[{ value: '1', label: 'Opção 1' }]}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h1 className="text-4xl font-black text-on-surface mb-2">Dialog</h1>
+          <p className="text-on-surface-variant mb-8">
+            Modal para diálogos e formulários.
+          </p>
+
+          <DialogExample />
+        </section>
+
+        <section>
+          <h1 className="text-4xl font-black text-on-surface mb-2">Sheet</h1>
+          <p className="text-on-surface-variant mb-8">
+            Painel lateral para menus e conteúdo complementar.
+          </p>
+
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-sm font-semibold text-on-surface-variant mb-4">
+                Default (Right)
+              </h2>
+              <SheetExample />
+            </div>
+
+            <div>
+              <h2 className="text-sm font-semibold text-on-surface-variant mb-4">
+                Glass
+              </h2>
+              <div className="bg-inverse-surface p-8 rounded-xl max-w-md">
+                <SheetExample glass />
+              </div>
             </div>
           </div>
         </section>
