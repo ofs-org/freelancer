@@ -24,7 +24,7 @@
 - [X] T003 [P] Configure linting and formatting tools (ESLint, Prettier)
 - [X] T004 [P] Configure TailwindCSS v4 with shadcn-ui theme
 - [X] T005 Setup environment configuration (.env.example, .env.local)
-- [ ] T006 Configure PostgreSQL connection in src/lib/db.ts using Drizzle ORM
+- [X] T006 Configure PostgreSQL connection in src/lib/db.ts using Drizzle ORM
 
 ---
 
