@@ -38,6 +38,5 @@ next-env.d.ts
 coverage/
 
 # Misc
-*.ts
-!*.d.ts
-node_modules
+*.swp
+*.swo
