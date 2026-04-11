@@ -34,7 +34,7 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T007 Create Drizzle schema in src/db/schema.ts (leads, checklist_leads, projetos, faqs tables)
+- [X] T007 Create Drizzle schema in src/db/schema.ts (leads, checklist_leads, projetos, faqs tables)
 - [ ] T008 [P] Setup database migrations with `pnpm run db:push`
 - [ ] T009 [P] Configure Better Auth in src/lib/auth.ts
 - [ ] T010 [P] Setup Resend email configuration in src/lib/email.ts
