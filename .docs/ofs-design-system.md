@@ -749,4 +749,125 @@ Dois padrões de glass utilizados no projeto:
 
 ---
 
+## Boas Práticas de Código
+
+Esta seção documenta os padrões de código e utilitários estabelecidos no projeto OFS Freelancer.
+
+### Logger (Pino)
+
+Biblioteca de logging estruturado utilizada no projeto.
+
+```typescript
+import logger, { createChildLogger, logError, logInfo } from '@/lib/logger';
+
+// Uso básico
+logInfo('Mensagem de info', { key: 'value' });
+logWarn('Aviso', { contexto: 'dados' });
+logError(error, { acao: 'falha' });
+
+// Child logger por módulo
+const authLogger = createChildLogger('auth');
+authLogger.info({ userId: '123' }, 'Login realizado');
+```
+
+**Configuração:**
+- Desenvolvimento: usa `pino-pretty` com cores
+- Produção: JSON estruturado
+- Nível configurável via `LOG_LEVEL`
+
+### Error Handling
+
+Classes de erro padronizadas para diferentes cenários.
+
+```typescript
+import { 
+  AppError, 
+  BadRequestError, 
+  NotFoundError, 
+  ValidationError 
+} from '@/lib/errors';
+
+// Uso em server actions
+if (!data) {
+  throw new NotFoundError('Recurso não encontrado');
+}
+
+if (invalidInput) {
+  throw new ValidationError('Dados inválidos', { campos: ['email'] });
+}
+```
+
+**Códigos de Erro:**
+
+| Código | Status | Uso |
+|--------|--------|-----|
+| `BAD_REQUEST` | 400 | Dados inválidos |
+| `UNAUTHORIZED` | 401 | Não autenticado |
+| `FORBIDDEN` | 403 | Sem permissão |
+| `NOT_FOUND` | 404 | Recurso não existe |
+| `CONFLICT` | 409 | Dados duplicados |
+| `VALIDATION_ERROR` | 422 | Validação falhou |
+| `INTERNAL_ERROR` | 500 | Erro geral |
+| `SERVICE_UNAVAILABLE` | 503 | Serviço indisponível |
+
+### Utilitários de Error
+
+Funções helper para tratamento de erros em API routes.
+
+```typescript
+import { handleError, errorResponse, asyncHandler } from '@/lib/utils';
+
+// Handler manual
+export function GET(request: Request) {
+  try {
+    // lógica
+  } catch (error) {
+    return errorResponse(error);
+  }
+}
+
+// Wrapper async (recomendado)
+export const GET = asyncHandler(async (request: Request) => {
+  // lógica que pode lançar erros
+});
+```
+
+### Função cn()
+
+Utilitário para merge de classes Tailwind.
+
+```typescript
+import { cn } from '@/lib/utils';
+
+// Combina classes condicionais
+<div className={cn(
+  'base-class',
+  isActive && 'active-class',
+  variant === 'primary' && 'bg-primary'
+)} />
+```
+
+---
+
+## Estrutura de Arquivos
+
+```
+src/lib/
+├── utils.ts       # cn(), handleError, errorResponse, asyncHandler
+├── errors.ts      # AppError, classes de erro, helpers
+├── logger.ts      # Pino logger, child loggers
+├── db.ts          # Drizzle client
+├── auth.ts        # Better Auth config
+├── email.ts       # Resend helpers
+└── ai.ts          # Vercel AI SDK config
+
+src/db/
+└── schema.ts      # Drizzle schema (leads, projetos, faqs, etc.)
+
+src/components/ui/
+└── button.tsx, input.tsx, card.tsx, etc.
+```
+
+---
+
 _OFS Design System · Gerado a partir do projeto Stitch by Google · Sovereign Architect © 2024_

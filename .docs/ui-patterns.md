@@ -72,6 +72,9 @@ export { componentVariants };
 | Textarea | `src/components/ui/textarea.tsx` | default, error, disabled | - |
 | Card | `src/components/ui/card.tsx` | default, elevated, glass, primary-container | - |
 | Badge | `src/components/ui/badge.tsx` | primary, secondary, tertiary, error, neutral, dark-pill, outline-primary | sm, md, lg |
+| Select | `src/components/ui/select.tsx` | - | - |
+| Sheet | `src/components/ui/sheet.tsx` | top, bottom, left, right | - |
+| Dialog | `src/components/ui/dialog.tsx` | - | - |
 
 ## Exemplo de Uso
 
