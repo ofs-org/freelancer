@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Serif, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
+import { Header } from '@/components/sections/header';
 import { cn } from '@/lib/utils';
 
 const notoSerif = Noto_Serif({
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
+      suppressHydrationWarning
       className={cn(
         'h-full',
         'antialiased',
@@ -44,7 +46,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col font-body">{children}</body>
+      <body className="min-h-full flex flex-col font-body">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

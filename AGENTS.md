@@ -155,6 +155,7 @@ try {
 - Use Tailwind utilities
 - Avoid custom CSS
 - Use `cn()` for conditional classes
+- **NUNCA use cores ou fontes hard-coded** - use tokens do design system
 
 ---
 
@@ -221,4 +222,6 @@ Ao criar componentes UI, forms ou做任何 task, consulte:
 6. **Commits**: Use `.docs/conventional-commits.md`
 7. **Antes de criar novos componentes**: Siga `.docs/ui-patterns.md`
 8. **Ao estilizar**: Use tokens de `.docs/design-tokens.md`
+   - Nunca use cores hex (`#D0F336`) ou fontes (`font-['Plus_Jakarta_Sans']`)
+   - Use classes: `bg-primary`, `text-on-surface`, `font-body`, `font-heading`
 9. **Acessibilidade**: Validate com `.docs/accessibility.md`
