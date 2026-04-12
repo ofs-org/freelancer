@@ -8,7 +8,6 @@ import { Card, CardContent, CardTitle } from "@/components/ui/card";
 export default function DesignPage() {
   return (
     <main className="min-h-screen p-8 md:p-16 space-y-16">
-      {/* ICONS */}
       <section>
         <h2 className="font-heading text-2xl font-semibold mb-4">Icons</h2>
         <Card>

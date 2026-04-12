@@ -14,13 +14,23 @@ interface ChecklistEmailProps {
 }
 
 export function ChecklistEmailTemplate({ name }: ChecklistEmailProps) {
+  const colors = {
+    surface: '#F9F9F9',
+    surfaceContainerLowest: '#FFFFFF',
+    onSurface: '#1A1C1C',
+    onSurfaceVariant: '#454934',
+    surfaceVariant: '#E2E2E2',
+    secondary: '#566516',
+    outline: '#767962',
+  };
+
   return (
     <Html>
       <Head />
       <Body
         style={{
           fontFamily: '"Plus Jakarta Sans", sans-serif',
-          backgroundColor: '#F9F9F9',
+          backgroundColor: colors.surface,
         }}
       >
         <Container
@@ -32,7 +42,7 @@ export function ChecklistEmailTemplate({ name }: ChecklistEmailProps) {
         >
           <Section
             style={{
-              backgroundColor: '#FFFFFF',
+              backgroundColor: colors.surfaceContainerLowest,
               borderRadius: '16px',
               padding: '40px',
               boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
@@ -40,7 +50,7 @@ export function ChecklistEmailTemplate({ name }: ChecklistEmailProps) {
           >
             <Text
               style={{
-                color: '#1A1C1C',
+                color: colors.onSurface,
                 fontSize: '24px',
                 fontWeight: 700,
                 marginBottom: '16px',
@@ -51,7 +61,7 @@ export function ChecklistEmailTemplate({ name }: ChecklistEmailProps) {
 
             <Text
               style={{
-                color: '#454934',
+                color: colors.onSurfaceVariant,
                 fontSize: '16px',
                 lineHeight: '1.6',
               }}
@@ -61,7 +71,7 @@ export function ChecklistEmailTemplate({ name }: ChecklistEmailProps) {
 
             <Text
               style={{
-                color: '#454934',
+                color: colors.onSurfaceVariant,
                 fontSize: '16px',
                 lineHeight: '1.6',
                 marginTop: '16px',
@@ -73,16 +83,16 @@ export function ChecklistEmailTemplate({ name }: ChecklistEmailProps) {
 
             <Hr
               style={{
-                borderColor: '#E2E2E2',
+                borderColor: colors.surfaceVariant,
                 margin: '24px 0',
               }}
             />
 
-            <Text style={{ color: '#454934', fontSize: '14px' }}>
+            <Text style={{ color: colors.onSurfaceVariant, fontSize: '14px' }}>
               Precisa de ajuda? Responda este email ou{' '}
               <Link
                 href="https://wa.me/5511968336094"
-                style={{ color: '#566516' }}
+                style={{ color: colors.secondary }}
               >
                 entre em contato pelo WhatsApp
               </Link>
@@ -93,7 +103,7 @@ export function ChecklistEmailTemplate({ name }: ChecklistEmailProps) {
           <Text
             style={{
               textAlign: 'center' as const,
-              color: '#767962',
+              color: colors.outline,
               fontSize: '12px',
               marginTop: '24px',
             }}
