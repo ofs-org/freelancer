@@ -210,6 +210,14 @@ Ao criar componentes UI, forms ou做任何 task, consulte:
 - **Acessibilidade**: `.docs/accessibility.md` - Boas práticas WCAG 2.1 AA
 - **Copy**: `.docs/copy.md` - Textos e mensagens do projeto
 
+### shadcn/ui Custom
+
+Ver [.docs/shadcn-custom.md](/.docs/shadcn-custom.md) - Padrões para customização de componentes Radix/shadcn
+
+### Animações
+
+Ver [.docs/animation-patterns.md](/.docs/animation-patterns.md) - Boas práticas com Motion library
+
 ---
 
 ## Key Notes
@@ -225,3 +233,5 @@ Ao criar componentes UI, forms ou做任何 task, consulte:
    - Nunca use cores hex (`#D0F336`) ou fontes (`font-['Plus_Jakarta_Sans']`)
    - Use classes: `bg-primary`, `text-on-surface`, `font-body`, `font-heading`
 9. **Acessibilidade**: Validate com `.docs/accessibility.md`
+10. **Animações**: Use `.docs/animation-patterns.md` para Motion library
+11. **shadcn custom**: Siga `.docs/shadcn-custom.md` para customização de componentes
