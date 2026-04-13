@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { MessageCircleMoreIcon } from '../icons/message-circle-more';
-import { MobileMenu } from './mobile-menu';
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { MessageCircleMoreIcon } from "../icons/message-circle-more";
+import { MobileMenu } from "./mobile-menu";
 
 const navLinks = [
-  { href: '/', label: 'Início' },
-  { href: '/solucoes', label: 'Soluções' },
-  { href: '/tecnologias', label: 'Tecnologias' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/contato', label: 'Contato' },
+  { href: "/", label: "Início" },
+  { href: "#solucoes", label: "Soluções" },
+  { href: "#tecnologias", label: "Tecnologias" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/contato", label: "Contato" },
 ];
 
 export function Header() {
@@ -23,17 +23,17 @@ export function Header() {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out',
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out",
         isScrolled
-          ? 'bg-surface/80 backdrop-blur-xl border-b border-white/10'
-          : 'bg-transparent'
+          ? "bg-surface/80 backdrop-blur-xl border-b border-white/10"
+          : "bg-transparent",
       )}
     >
       <nav
@@ -44,8 +44,8 @@ export function Header() {
         <Link
           href="/"
           className={cn(
-            'font-body text-2xl font-bold tracking-wide transition-colors duration-300',
-            isScrolled ? 'text-on-surface' : 'text-white'
+            "font-body text-2xl font-bold tracking-wide transition-colors duration-300",
+            isScrolled ? "text-on-surface" : "text-white",
           )}
         >
           OFS
@@ -58,10 +58,10 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                'font-body text-sm font-semibold uppercase tracking-tight transition-colors duration-300',
+                "font-body text-sm font-semibold uppercase tracking-tight transition-colors duration-300",
                 isScrolled
-                  ? 'text-on-surface hover:text-on-surface/80'
-                  : 'text-white/60 hover:text-white'
+                  ? "text-on-surface hover:text-on-surface/80"
+                  : "text-white/60 hover:text-white",
               )}
             >
               {link.label}
