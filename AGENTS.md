@@ -102,7 +102,25 @@ pnpm biome format --write --organize-imports .
 
 ## Atomic Design
 
-Ver [`.docs/atomic-design.md`](/.docs/atomic-design.md)
+Ver [`.docs/atomic-design.md`](/.docs/atomic-design.md) - Metodologia completa (Atoms, Molecules, Organisms, Templates, Pages)
+
+### Checklist: Criar Nova Página
+
+Ao criar uma nova página em `src/app/[pagina]/`:
+
+1. **Criar diretório**: `src/app/[pagina]/`
+2. **Criar `_components/`**: pasta para componentes específicos desta página
+3. **Criar `page.tsx`**: o template/page
+4. **Criar componentes** seguindo a hierarquia:
+   - **Atoms** → `src/components/ui/` (Button, Input, Icon)
+   - **Molecules** → `src/components/ui/` (Card, FormField)
+   - **Organisms** → `src/components/sections/` (Hero, Header, Footer)
+   - **Page-specific** → `_components/`
+
+### Regra de Ouro
+
+- Componente em **1 página** → `_components/`
+- Componente em **≥2 páginas** → `src/components/`
 
 ---
 
