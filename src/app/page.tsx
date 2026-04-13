@@ -1,6 +1,8 @@
-import { DiagnosticoEstrategico } from '@/components/sections/diagnostico-estrategico';
-import { EngenhariaValor } from '@/components/sections/engenharia-valor';
-import { Hero } from './_components/hero';
+import { DiagnosticoEstrategico } from "@/components/sections/diagnostico-estrategico";
+import { EngenhariaValor } from "@/components/sections/engenharia-valor";
+import { Processo } from "@/components/sections/processo";
+import { StackTecnologica } from "@/components/sections/stack-tecnologica";
+import { Hero } from "./_components/hero";
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
       <Hero />
       <DiagnosticoEstrategico />
       <EngenhariaValor />
+      <StackTecnologica />
+      <Processo />
     </main>
   );
 }

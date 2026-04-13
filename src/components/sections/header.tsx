@@ -11,8 +11,8 @@ const navLinks = [
   { href: "/", label: "Início" },
   { href: "#solucoes", label: "Soluções" },
   { href: "#tecnologias", label: "Tecnologias" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/contato", label: "Contato" },
+  { href: "/projects", label: "Portfolio" },
+  { href: "/contacts", label: "Contato" },
 ];
 
 export function Header() {

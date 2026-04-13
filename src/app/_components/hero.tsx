@@ -17,7 +17,7 @@ import { StatsBar } from "./stats-bar";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pb-32">
       <div className="absolute inset-0 w-full h-full">
         <Image
           alt="Escritório moderno"
@@ -31,14 +31,17 @@ export function Hero() {
       </div>
 
       <motion.div
-        className="relative z-10 pt-10 px-8 max-w-7xl mx-auto w-full"
+        className="relative z-10 pt-20 px-8 max-w-7xl mx-auto w-full"
         variants={heroContainerVariants}
         initial="hidden"
         animate="visible"
       >
         <div className="max-w-5xl">
           <motion.div variants={fadeInUpVariants}>
-            <Badge variant="dark-pill" className="glass-panel mb-6 gap-4 px-6">
+            <Badge
+              variant="outline-primary"
+              className="glass-panel mb-6 gap-4 px-6"
+            >
               <motion.span
                 className="w-2 h-2 rounded-full bg-primary-container"
                 animate={{ opacity: [0.5, 1, 0.5] }}
@@ -56,7 +59,7 @@ export function Hero() {
 
           <motion.p
             variants={fadeInUpVariants}
-            className="font-body text-xl md:text-2xl text-white/70 leading-relaxed mb-6 font-medium tracking-tight"
+            className="font-body text-xl md:text-2xl text-white/70 leading-relaxed mb-3 font-medium tracking-tight"
           >
             Seu site não é apenas um custo.
           </motion.p>
@@ -86,7 +89,7 @@ export function Hero() {
 
           <motion.div
             variants={fadeInScaleVariants}
-            className="flex flex-wrap gap-6 mb-24"
+            className="flex flex-wrap gap-6  mb-8"
           >
             <motion.div
               variants={buttonHoverVariants}
@@ -135,7 +138,7 @@ export function Hero() {
         animate="visible"
         className="absolute bottom-1 left-1/2 -translate-x-1/2"
       >
-        <div className="flex flex-col items-center gap-2 text-white/30">
+        <div className="flex animate-bounce flex-col items-center gap-2 text-white/30">
           <ChevronDownIcon className="h-8 w-8" />
           <ChevronDownIcon className="-mt-7 h-8 w-8" />
         </div>

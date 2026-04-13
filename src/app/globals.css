@@ -5,7 +5,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-
   --primary: #d0f336;
   --primary-fixed: #cef134;
   --primary-fixed-dim: #b3d406;
@@ -108,8 +107,8 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  --font-body: var(--font-body-next, 'Plus Jakarta Sans'), sans-serif;
-  --font-heading: var(--font-heading-next, 'Noto Serif'), serif;
+  --font-body: var(--font-body-next, "Plus Jakarta Sans"), sans-serif;
+  --font-heading: var(--font-heading-next, "Noto Serif"), serif;
 
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
@@ -263,27 +262,23 @@
 
 @layer utilities {
   .glass-panel {
-    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
 
   .glass-button {
-    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .apple-card {
-    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -293,13 +288,11 @@
   .apple-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.95);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-
     --surface-container-lowest: #1a1c1c;
     --surface: #2f3131;
     --surface-bright: #353535;
@@ -319,12 +312,16 @@ body {
   font-family: var(--font-body);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
 }
 
 .dark {
-
   --background: oklch(0.145 0 0);
 
   --foreground: oklch(0.985 0 0);

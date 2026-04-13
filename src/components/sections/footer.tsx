@@ -77,32 +77,34 @@ const Footer = () => {
             variants={fadeInUpVariants}
           >
             <Link
-              href="https://github.com"
+              href="https://github.com/emmanuelmarcosdeoliveira"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-xs tracking-widest uppercase text-on-surface/40 transition-colors duration-200 hover:text-primary-container"
+              className="font-body text-xs tracking-widest uppercase text-on-surface/40 transition-colors duration-200 hover:text-on-background"
             >
               Github
             </Link>
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/oliveira-emmanuel/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-xs tracking-widest uppercase text-on-surface/40 transition-colors duration-200 hover:text-primary-container"
+              className="font-body text-xs tracking-widest uppercase text-on-surface/40 transition-colors duration-200 hover:text-on-background"
             >
               LinkedIn
             </Link>
             <Link
-              href="#"
-              className="font-body text-xs tracking-widest uppercase text-on-surface/40 transition-colors duration-200 hover:text-primary-container"
+              href="https://x.com/Emmanuel_0501"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-body text-xs tracking-widest uppercase text-on-surface/40 transition-colors duration-200 hover:text-on-background"
             >
-              Source Code
+              X - Twitter
             </Link>
             <Link
-              href="#"
-              className="font-body text-xs tracking-widest uppercase text-on-surface/40 transition-colors duration-200 hover:text-primary-container"
+              href="/privacy-policy"
+              className="font-body text-xs tracking-widest uppercase text-on-surface/40 transition-colors duration-200 hover:text-on-background"
             >
-              Privacy Policy
+              Politica de Privacidade
             </Link>
           </motion.div>
           <motion.div className="flex gap-3" variants={fadeInScaleVariants}>

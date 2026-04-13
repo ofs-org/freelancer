@@ -1,54 +1,54 @@
-'use client';
+"use client";
 
-import { Building2, MousePointerClick, Zap } from 'lucide-react';
-import { motion } from 'motion/react';
-import Image from 'next/image';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   fadeInUpVariants,
   staggerContainerVariants,
-} from '@/lib/animation-variants';
+} from "@/lib/animation-variants";
+import { Building2, MousePointerClick, Zap } from "lucide-react";
+import { motion } from "motion/react";
+import Image from "next/image";
 
 const beneficios = [
   {
-    id: 'velocidade',
+    id: "velocidade",
     icon: Zap,
-    titulo: 'Foco em Velocidade',
+    titulo: "Foco em Velocidade",
     descricao:
-      'Utilizo frameworks modernos que priorizam a entrega de conteúdo instantânea.',
+      "Utilizo frameworks modernos que priorizam a entrega de conteúdo instantânea.",
   },
   {
-    id: 'arquitetura',
+    id: "arquitetura",
     icon: Building2,
-    titulo: 'Arquitetura Limpa',
+    titulo: "Arquitetura Limpa",
     descricao:
-      'Código escalável e fácil de manter, garantindo que seu site cresça com seu negócio.',
+      "Código escalável e fácil de manter, garantindo que seu site cresça com seu negócio.",
   },
   {
-    id: 'cro',
+    id: "cro",
     icon: MousePointerClick,
-    titulo: 'Otimização de Conversão (CRO)',
-    descricao: 'Cada pixel é pensado para guiar o usuário até a ação desejada.',
+    titulo: "Otimização de Conversão (CRO)",
+    descricao: "Cada pixel é pensado para guiar o usuário até a ação desejada.",
   },
 ];
 
 const imagens = [
   {
-    src: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-    alt: 'Team meeting tech',
+    src: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800",
+    alt: "Team meeting tech",
   },
   {
-    src: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800',
-    alt: 'Technology coding',
+    src: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800",
+    alt: "Technology coding",
   },
   {
-    src: 'https://images.pexels.com/photos/1181243/pexels-photo-1181243.jpeg?auto=compress&cs=tinysrgb&w=800',
-    alt: 'Mobile app design',
+    src: "https://images.pexels.com/photos/1181243/pexels-photo-1181243.jpeg?auto=compress&cs=tinysrgb&w=800",
+    alt: "Mobile app design",
   },
   {
-    src: 'https://images.pexels.com/photos/261628/pexels-photo-261628.jpeg?auto=compress&cs=tinysrgb&w=800',
-    alt: 'Modern office',
+    src: "https://images.pexels.com/photos/261628/pexels-photo-261628.jpeg?auto=compress&cs=tinysrgb&w=800",
+    alt: "Modern office",
   },
 ];
 
@@ -60,7 +60,7 @@ export function EngenhariaValor() {
           variants={fadeInUpVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: '-100px' }}
+          viewport={{ once: false, margin: "-100px" }}
           className="order-2 lg:order-1"
         >
           <div className="grid grid-cols-2 gap-4">
@@ -80,12 +80,9 @@ export function EngenhariaValor() {
                 </div>
               </motion.div>
               <motion.div variants={fadeInUpVariants}>
-                <Card
-                  variant="primary-container"
-                  className="h-40 [&>div]:(flex items-center justify-center)"
-                >
+                <Card variant="primary-container">
                   <CardContent className="text-center p-0">
-                    <p className="font-heading font-black text-2xl leading-tight text-on-primary-container">
+                    <p className="font-heading font-black  text-xl leading-tight text-on-primary-container">
                       Engenharia de Valor
                     </p>
                   </CardContent>
@@ -94,9 +91,9 @@ export function EngenhariaValor() {
             </div>
             <div className="space-y-4">
               <motion.div variants={fadeInUpVariants}>
-                <Card className="h-40 [&>div]:(flex items-center justify-center)">
+                <Card>
                   <CardContent className="text-center p-0">
-                    <p className="font-heading font-black text-2xl leading-tight text-on-surface-variant">
+                    <p className="font-heading font-black text-xl leading-tight text-on-surface-variant">
                       Design que Converte
                     </p>
                   </CardContent>
@@ -124,7 +121,7 @@ export function EngenhariaValor() {
           variants={staggerContainerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: '-100px' }}
+          viewport={{ once: false, margin: "-100px" }}
           className="order-1 lg:order-2"
         >
           <motion.div variants={fadeInUpVariants}>
@@ -156,17 +153,15 @@ export function EngenhariaValor() {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.96 }}
-                    className="w-12 h-12 shrink-0 rounded-full bg-surface-container flex items-center justify-center"
+                    className="w-12 h-12 shrink-0 rounded-full  flex items-center justify-center"
                   >
-                    <Icon className="size-6 text-primary" />
+                    <Icon className="size-10 text-primary" />
                   </motion.div>
                   <motion.div whileHover={{ x: 5 }}>
                     <h4 className="font-heading font-bold text-lg mb-2 text">
                       {beneficio.titulo}
                     </h4>
-                    <p className="text-secondary text-sm">
-                      {beneficio.descricao}
-                    </p>
+                    <p className="text-sm">{beneficio.descricao}</p>
                   </motion.div>
                 </motion.div>
               );
