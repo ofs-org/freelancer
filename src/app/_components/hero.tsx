@@ -31,14 +31,14 @@ export function Hero() {
       </div>
 
       <motion.div
-        className="relative z-10 pt-20 px-8 max-w-7xl mx-auto w-full"
+        className="relative z-10 pt-10 px-8 max-w-7xl mx-auto w-full"
         variants={heroContainerVariants}
         initial="hidden"
         animate="visible"
       >
         <div className="max-w-5xl">
           <motion.div variants={fadeInUpVariants}>
-            <Badge variant="dark-pill" className="glass-panel mb-10 gap-4 px-6">
+            <Badge variant="dark-pill" className="glass-panel mb-6 gap-4 px-6">
               <motion.span
                 className="w-2 h-2 rounded-full bg-primary-container"
                 animate={{ opacity: [0.5, 1, 0.5] }}
@@ -133,7 +133,7 @@ export function Hero() {
         variants={fadeInVariants}
         initial="hidden"
         animate="visible"
-        className="absolute -bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-1 left-1/2 -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2 text-white/30">
           <ChevronDownIcon className="h-8 w-8" />

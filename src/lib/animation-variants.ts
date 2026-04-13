@@ -50,6 +50,17 @@ export const fadeInVariants: Variants = {
   },
 };
 
+export const staggerContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
 export const buttonHoverVariants: Variants = {
   rest: { scale: 1 },
   hover: { scale: 1.02 },
