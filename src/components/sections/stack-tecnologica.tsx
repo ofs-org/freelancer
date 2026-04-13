@@ -45,7 +45,7 @@ const stackItems = [
     id: "apis",
     colSpan: "md:col-span-2",
     title: "Integrações API",
-    description: "Stripe, HubSpot, CMS & mais.",
+    description: "Express, Fastify, CMS & mais.",
     icon: Plug,
     bg: "bg-surface-container-lowest",
     padding: "p-8",

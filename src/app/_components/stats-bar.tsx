@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import * as React from 'react';
+import * as React from "react";
 
-import { Card } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { useCounterAnimation } from '@/utils/counter';
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { useCounterAnimation } from "@/utils/counter";
 
 interface StatItem {
   label: string;
@@ -30,8 +30,8 @@ function StatCounter({
 
 export function StatsBar() {
   const stats: StatItem[] = [
-    { label: 'Performance Real-time', target: 99.9, decimals: 1, suffix: '%' },
-    { label: 'Uptime Garantido', target: 100, decimals: 0, suffix: '%' },
+    { label: "Performance Real-time", target: 99.9, decimals: 1, suffix: "%" },
+    { label: "Uptime Garantido", target: 98, decimals: 0, suffix: "%" },
   ];
 
   return (
