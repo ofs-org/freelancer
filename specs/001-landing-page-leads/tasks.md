@@ -64,7 +64,7 @@
 - [X] T021 [P] [US1] Create Footer section component in src/components/sections/footer.tsx
 - [X] T022 [US1] Implement main landing page in src/app/(routes)/page.tsx
 - [X] T023 [US1] Add SEO metadata (title, description, Open Graph) in src/app/layout.tsx
-- [ ] T024 [US1] Add Schema markup for local business in src/app/(routes)/layout.tsx
+- [X] T024 [US1] Add Schema markup for local business in src/app/layout.tsx
 - [ ] T025 [US1] Implement sticky CTA buttons in src/components/ui/sticky-cta.tsx
 - [ ] T026 [US1] Add mobile responsive styles and test viewport under 768px
 - [ ] T027 [US1] Implement WhatsApp floating button in src/components/ui/whatsapp-float.tsx
