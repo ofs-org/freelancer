@@ -98,6 +98,38 @@ pnpm biome format --write --organize-imports .
 - Keep components small and focused
 - Extract logic to custom hooks
 
+---
+
+## Atomic Design
+
+Ver [`.docs/atomic-design.md`](/.docs/atomic-design.md) - Metodologia completa (Atoms, Molecules, Organisms, Templates, Pages)
+
+### Checklist: Criar Nova Página
+
+Ao criar uma nova página em `src/app/[pagina]/`:
+
+1. **Criar diretório**: `src/app/[pagina]/`
+2. **Criar `_components/`**: pasta para componentes específicos desta página
+3. **Criar `page.tsx`**: o template/page
+4. **Criar componentes** seguindo a hierarquia:
+   - **Atoms** → `src/components/ui/` (Button, Input, Icon)
+   - **Molecules** → `src/components/ui/` (Card, FormField)
+   - **Organisms** → `src/components/sections/` (Hero, Header, Footer)
+   - **Page-specific** → `_components/`
+
+### Regra de Ouro
+
+- Componente em **1 página** → `_components/`
+- Componente em **≥2 páginas** → `src/components/`
+
+---
+
+## Conventional Commits
+
+Ver [`.docs/conventional-commits.md`](/.docs/conventional-commits.md)
+
+---
+
 ## Links e Navegação
 
 - Use `Link` do Next.js para navegação interna
@@ -141,6 +173,7 @@ try {
 - Use Tailwind utilities
 - Avoid custom CSS
 - Use `cn()` for conditional classes
+- **NUNCA use cores ou fontes hard-coded** - use tokens do design system
 
 ---
 
@@ -188,10 +221,20 @@ Run single test: `vitest run --filter "test-name"`
 
 Ao criar componentes UI, forms ou做任何 task, consulte:
 
+- **Atomic Design**: `.docs/atomic-design.md` - Estrutura de componentes
+- **Conventional Commits**: `.docs/conventional-commits.md` - Padrão de commits
 - **Design Tokens**: `.docs/design-tokens.md` - Cores, fontes, espaçamento, sombras
 - **UI Patterns**: `.docs/ui-patterns.md` - Padrões de componentes com CVA
 - **Acessibilidade**: `.docs/accessibility.md` - Boas práticas WCAG 2.1 AA
 - **Copy**: `.docs/copy.md` - Textos e mensagens do projeto
+
+### shadcn/ui Custom
+
+Ver [.docs/shadcn-custom.md](/.docs/shadcn-custom.md) - Padrões para customização de componentes Radix/shadcn
+
+### Animações
+
+Ver [.docs/animation-patterns.md](/.docs/animation-patterns.md) - Boas práticas com Motion library
 
 ---
 
@@ -201,6 +244,12 @@ Ao criar componentes UI, forms ou做任何 task, consulte:
 2. Path aliases: `@/*` maps to `./src/*`
 3. Never commit secrets - use `.env.local`
 4. Run `pnpm biome check .` before committing
-5. **Antes de criar novos componentes**: Siga `.docs/ui-patterns.md`
-6. **Ao estilizar**: Use tokens de `.docs/design-tokens.md`
-7. **Acessibilidade**: Validate com `.docs/accessibility.md`
+5. **Estrutura de componentes**: Siga `.docs/atomic-design.md`
+6. **Commits**: Use `.docs/conventional-commits.md`
+7. **Antes de criar novos componentes**: Siga `.docs/ui-patterns.md`
+8. **Ao estilizar**: Use tokens de `.docs/design-tokens.md`
+   - Nunca use cores hex (`#D0F336`) ou fontes (`font-['Plus_Jakarta_Sans']`)
+   - Use classes: `bg-primary`, `text-on-surface`, `font-body`, `font-heading`
+9. **Acessibilidade**: Validate com `.docs/accessibility.md`
+10. **Animações**: Use `.docs/animation-patterns.md` para Motion library
+11. **shadcn custom**: Siga `.docs/shadcn-custom.md` para customização de componentes

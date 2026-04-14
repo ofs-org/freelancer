@@ -153,6 +153,34 @@ Sistema baseado em múltiplos de **4px**.
 
 **Nota**: Glass é reservado para elementos sobre imagens ou fundos escuros.
 
+## Boas Práticas
+
+### Nunca use cores ou fontes hard-coded
+
+**Cores**: Use sempre tokens Tailwind
+- ✅ `bg-primary`, `text-on-surface`, `border-outline`
+- ❌ `bg-[#D0F336]`, `text-[#1a1c1c]`
+
+**Fontes**: Use tokens do sistema
+- ✅ `font-body`, `font-heading`
+- ❌ `font-['Plus_Jakarta_Sans']`, `font-['Noto_Serif']`
+
+**Como identificar cores hard-coded no código**:
+```bash
+grep -r "#[0-9a-fA-F]{3,6}" --include="*.tsx" --include="*.ts" src/
+```
+
+**Como identificar fontes hard-coded no código**:
+```bash
+grep -r "font-\['" --include="*.tsx" --include="*.ts" src/
+```
+
+**Exceções válidas**:
+- Email templates (CSS inline) devem usar objeto de cores centralizado
+- Sombras customizadas que não existem nos tokens
+
+---
+
 ##Classes CSS Disponíveis
 
 No Tailwind v4 com `@theme inline`, as seguintesclasses estão disponíveis:

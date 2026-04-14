@@ -1,8 +1,10 @@
 import { cva, type VariantProps } from 'class-variance-authority';
+import { Slot } from 'radix-ui';
+import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 const badgeVariants = cva(
-  'inline-flex items-center justify-center font-bold uppercase tracking-wider',
+  'group/badge inline-flex shrink-0 items-center justify-center gap-1 font-bold whitespace-nowrap transition-all duration-200 outline-none select-none [&_svg]:pointer-events-none [&_svg]:shrink-0',
   {
     variants: {
       variant: {
@@ -12,47 +14,47 @@ const badgeVariants = cva(
         error: 'bg-error-container text-on-error-container',
         neutral:
           'bg-surface-container text-on-surface-variant border border-outline-variant',
-        'dark-pill': 'bg-[#1a1c1c] text-primary',
+        'dark-pill': 'bg-on-surface text-primary rounded-full',
         'outline-primary':
-          'bg-transparent text-surface-tint border border-primary',
+          'border border-primary text-surface-tint bg-transparent',
       },
       size: {
-        sm: 'px-2 py-0.5 text-[10px]',
-        md: 'px-3 py-1 text-xs',
-        lg: 'px-4 py-1.5 text-sm',
-      },
-      radius: {
-        default: 'rounded',
-        sm: 'rounded-sm',
-        lg: 'rounded-lg',
-        full: 'rounded-full',
+        sm: 'h-5 px-2 py-0.5 text-[10px] rounded',
+        md: 'h-6 px-2.5 py-0.5 text-xs rounded-md',
+        lg: 'h-7 px-3 py-1 text-sm rounded-md',
       },
     },
     defaultVariants: {
       variant: 'primary',
       size: 'md',
-      radius: 'full',
     },
   }
 );
 
-export interface BadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof badgeVariants> {}
+interface BadgeProps
+  extends React.ComponentProps<'span'>,
+    VariantProps<typeof badgeVariants> {
+  asChild?: boolean;
+}
 
-export function Badge({
+function Badge({
   className,
-  variant,
-  size,
-  radius,
+  variant = 'primary',
+  size = 'md',
+  asChild = false,
   ...props
 }: BadgeProps) {
+  const Comp = asChild ? Slot.Root : 'span';
+
   return (
-    <span
-      className={cn(badgeVariants({ variant, size, radius, className }))}
+    <Comp
+      data-slot="badge"
+      data-variant={variant}
+      data-size={size}
+      className={cn(badgeVariants({ variant, size, className }))}
       {...props}
     />
   );
 }
 
-export { badgeVariants };
+export { Badge, badgeVariants };

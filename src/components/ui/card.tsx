@@ -1,63 +1,69 @@
 import { cva, type VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 import { cn } from '@/lib/utils';
 
-const cardVariants = cva('', {
-  variants: {
-    variant: {
-      default: 'bg-surface-container-lowest border border-outline-variant/10',
-      elevated:
-        'bg-surface-container-lowest shadow-medium border border-outline-variant/10',
-      glass: 'glass-panel',
-      'primary-container': 'bg-primary',
+const cardVariants = cva(
+  'group/card flex flex-col gap-4 overflow-hidden rounded-xl text-sm transition-all duration-300',
+  {
+    variants: {
+      variant: {
+        default:
+          'bg-surface-container border border-outline-variant/10 shadow-low',
+        elevated:
+          'bg-surface-container-lowest border border-outline-variant/10 shadow-medium hover:shadow-high hover:-translate-y-1',
+        glass: 'glass-panel',
+        'primary-container': 'bg-primary-container text-on-primary-container',
+      },
+      size: {
+        default: 'p-6',
+        sm: 'p-4',
+        lg: 'p-8',
+      },
     },
-    radius: {
-      default: 'roundedDEFAULT',
-      sm: 'rounded',
-      lg: 'rounded-lg',
-      xl: 'rounded-xl',
-      full: 'rounded-full',
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
     },
-  },
-  defaultVariants: {
-    variant: 'default',
-    radius: 'default',
-  },
-});
+  }
+);
 
-export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+interface CardProps
+  extends React.ComponentProps<'div'>,
     VariantProps<typeof cardVariants> {}
 
-export function Card({ className, variant, radius, ...props }: CardProps) {
+function Card({
+  className,
+  variant = 'default',
+  size = 'default',
+  ...props
+}: CardProps) {
   return (
     <div
-      className={cn(cardVariants({ variant, radius, className }))}
+      data-slot="card"
+      data-variant={variant}
+      data-size={size}
+      className={cn(cardVariants({ variant, size, className }))}
       {...props}
     />
   );
 }
 
-export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-export function CardHeader({ className, ...props }: CardHeaderProps) {
-  return <div className={cn('p-8 pb-0', className)} {...props} />;
-}
-
-export interface CardTitleProps
-  extends React.HTMLAttributes<HTMLHeadingElement> {
-  variant?: 'default' | 'primary';
-}
-
-export function CardTitle({
-  className,
-  variant = 'default',
-  ...props
-}: CardTitleProps) {
+function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
-    <h3
+    <div
+      data-slot="card-header"
+      className={cn('grid auto-rows-min items-start gap-1', className)}
+      {...props}
+    />
+  );
+}
+
+function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="card-title"
       className={cn(
-        'text-xl font-bold mb-2',
-        variant === 'primary' ? 'text-on-primary-container' : 'text-on-surface',
+        'font-heading text-lg font-semibold leading-tight text-on-surface',
         className
       )}
       {...props}
@@ -65,23 +71,22 @@ export function CardTitle({
   );
 }
 
-export interface CardDescriptionProps
-  extends React.HTMLAttributes<HTMLParagraphElement> {
-  variant?: 'default' | 'primary';
+function CardDescription({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="card-description"
+      className={cn('text-sm text-on-surface-variant', className)}
+      {...props}
+    />
+  );
 }
 
-export function CardDescription({
-  className,
-  variant = 'default',
-  ...props
-}: CardDescriptionProps) {
+function CardAction({ className, ...props }: React.ComponentProps<'div'>) {
   return (
-    <p
+    <div
+      data-slot="card-action"
       className={cn(
-        'text-sm',
-        variant === 'primary'
-          ? 'text-on-primary-container/80'
-          : 'text-on-surface-variant',
+        'col-start-2 row-span-2 row-start-1 self-start justify-self-end',
         className
       )}
       {...props}
@@ -89,22 +94,36 @@ export function CardDescription({
   );
 }
 
-export interface CardContentProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
-
-export function CardContent({ className, ...props }: CardContentProps) {
-  return <div className={cn('p-8', className)} {...props} />;
-}
-
-export interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-export function CardFooter({ className, ...props }: CardFooterProps) {
+function CardContent({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
-      className={cn('p-8 pt-0 flex items-center gap-4', className)}
+      data-slot="card-content"
+      className={cn('text-on-surface', className)}
       {...props}
     />
   );
 }
 
-export { cardVariants };
+function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="card-footer"
+      className={cn(
+        'flex items-center border-t border-outline-variant/10 pt-4 mt-auto',
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+export {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  cardVariants,
+};
