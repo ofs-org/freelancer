@@ -1,54 +1,54 @@
-"use client";
+'use client';
 
-import { fadeInUpVariants } from "@/lib/animation-variants";
-import { Cloud, Plug, Terminal } from "lucide-react";
-import { motion } from "motion/react";
+import { Cloud, Plug, Terminal } from 'lucide-react';
+import { motion } from 'motion/react';
+import { fadeInUpVariants } from '@/lib/animation-variants';
 
 const stackItems = [
   {
-    id: "fullstack",
-    colSpan: "md:col-span-2",
-    rowSpan: "md:row-span-2",
-    title: "Full-Stack Moderno",
+    id: 'fullstack',
+    colSpan: 'md:col-span-2',
+    rowSpan: 'md:row-span-2',
+    title: 'Full-Stack Moderno',
     description:
-      "Especialista em ecossistemas Next.js e React, proporcionando a melhor experiência de desenvolvimento e performance do usuário final.",
-    tags: ["Next", "React", "Tailwind", "Node.js"],
+      'Especialista em ecossistemas Next.js e React, proporcionando a melhor experiência de desenvolvimento e performance do usuário final.',
+    tags: ['Next', 'React', 'Tailwind', 'Node.js'],
     icon: Terminal,
-    bg: "bg-primary/70",
-    padding: "p-16",
+    bg: 'bg-primary/70',
+    padding: 'p-16',
     hasIconTop: true,
     hasTags: true,
   },
   {
-    id: "seguranca",
-    colSpan: "md:col-span-1",
-    title: "Segurança Máxima",
-    subtitle: "SSL & Data Privacy",
+    id: 'seguranca',
+    colSpan: 'md:col-span-1',
+    title: 'Segurança Máxima',
+    subtitle: 'SSL & Data Privacy',
     icon: null,
-    bg: "bg-surface-container-lowest",
-    padding: "p-8",
+    bg: 'bg-surface-container-lowest',
+    padding: 'p-8',
     hasIconTop: false,
     hasSubtitle: true,
   },
   {
-    id: "cloud",
-    colSpan: "md:col-span-1",
-    title: "Cloud Edge Deployment",
-    description: "Infraestrutura global de borda para performance máxima.",
+    id: 'cloud',
+    colSpan: 'md:col-span-1',
+    title: 'Cloud Edge Deployment',
+    description: 'Infraestrutura global de borda para performance máxima.',
     icon: Cloud,
-    bg: "bg-surface-container-lowest",
-    padding: "p-8",
+    bg: 'bg-surface-container-lowest',
+    padding: 'p-8',
     hasIconTop: true,
     hasDescription: true,
   },
   {
-    id: "apis",
-    colSpan: "md:col-span-2",
-    title: "Integrações API",
-    description: "Express, Fastify, CMS & mais.",
+    id: 'apis',
+    colSpan: 'md:col-span-2',
+    title: 'Integrações API',
+    description: 'Express, Fastify, CMS & mais.',
     icon: Plug,
-    bg: "bg-surface-container-lowest",
-    padding: "p-8",
+    bg: 'bg-surface-container-lowest',
+    padding: 'p-8',
     hasIconTop: true,
     hasDescription: true,
   },
@@ -56,8 +56,8 @@ const stackItems = [
 
 export function StackTecnologica() {
   return (
-    <section id="tecnologias" className="py-24">
-      <div className="max-w-7xl mx-auto px-8">
+    <section id="tecnologias" className="py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-black tracking-tight mb-4 text-on-surface flex items-center justify-center gap-3">
             <Terminal className="size-8  text-primary" />
@@ -71,9 +71,9 @@ export function StackTecnologica() {
         <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:min-h-[600px]">
           {stackItems.map((item, index) => {
             const Icon = item.icon;
-            const isLarge = item.rowSpan === "md:row-span-2";
+            const isLarge = item.rowSpan === 'md:row-span-2';
             const isPrimary =
-              item.bg === "bg-primary" || item.bg === "bg-primary-container";
+              item.bg === 'bg-primary' || item.bg === 'bg-primary-container';
 
             return (
               <motion.div
@@ -81,20 +81,20 @@ export function StackTecnologica() {
                 variants={fadeInUpVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: '-100px' }}
                 custom={index}
                 transition={{ delay: index * 0.1 }}
-                className={`${item.colSpan} ${item.rowSpan || ""} ${item.bg} ${item.padding} rounded-xl ${
-                  !isPrimary ? "shadow-sm border border-outline-variant/10" : ""
+                className={`${item.colSpan} ${item.rowSpan || ''} ${item.bg} ${item.padding} rounded-xl ${
+                  !isPrimary ? 'shadow-sm border border-outline-variant/10' : ''
                 } flex ${
                   isLarge
-                    ? "flex-col justify-between"
+                    ? 'flex-col justify-between'
                     : isPrimary
-                      ? "flex-col justify-end"
-                      : "flex-row items-center justify-between"
+                      ? 'flex-col justify-end'
+                      : 'flex-row items-center justify-between'
                 } apple-card group`}
               >
-                <div className={isLarge ? "flex-1" : ""}>
+                <div className={isLarge ? 'flex-1' : ''}>
                   {item.hasIconTop && Icon && (
                     <div className="w-16 h-16 bg-primary-container  flex items-center justify-center rounded-lg mb-6">
                       <Icon className="text-4xl text-secondary size-10" />
@@ -113,7 +113,7 @@ export function StackTecnologica() {
 
                   <h3
                     className={`font-bold text-xl md:text-2xl mb-2 ${
-                      isPrimary ? "text-on-primary" : "text-on-surface"
+                      isPrimary ? 'text-on-primary' : 'text-on-surface'
                     }`}
                   >
                     {item.title}

@@ -1,55 +1,55 @@
-"use client";
+'use client';
 
-import { fadeInUpVariants } from "@/lib/animation-variants";
-import { motion } from "motion/react";
+import { motion } from 'motion/react';
+import { fadeInUpVariants } from '@/lib/animation-variants';
 
 const diferenciais = [
   {
-    id: "design-exclusivo",
-    numero: "01",
-    titulo: "Design Exclusivo",
+    id: 'design-exclusivo',
+    numero: '01',
+    titulo: 'Design Exclusivo',
     descricao:
-      "Nada de templates prontos. Sua marca merece uma identidade única e autêntica.",
+      'Nada de templates prontos. Sua marca merece uma identidade única e autêntica.',
   },
   {
-    id: "seo-estrutural",
-    numero: "02",
-    titulo: "SEO Estrutural",
+    id: 'seo-estrutural',
+    numero: '02',
+    titulo: 'SEO Estrutural',
     descricao:
-      "Seu site é construído para ser lido e amado pelo Google desde o primeiro código.",
+      'Seu site é construído para ser lido e amado pelo Google desde o primeiro código.',
   },
   {
-    id: "suporte-premium",
-    numero: "03",
-    titulo: "Suporte Premium",
+    id: 'suporte-premium',
+    numero: '03',
+    titulo: 'Suporte Premium',
     descricao:
-      "Acompanhamento próximo e direto, sem camadas de burocracia ou atendimento robotizado.",
+      'Acompanhamento próximo e direto, sem camadas de burocracia ou atendimento robotizado.',
   },
   {
-    id: "escalabilidade",
-    numero: "04",
-    titulo: "Escalabilidade",
+    id: 'escalabilidade',
+    numero: '04',
+    titulo: 'Escalabilidade',
     descricao:
-      "Sistemas preparados para aguentar picos de tráfego sem queda de performance.",
+      'Sistemas preparados para aguentar picos de tráfego sem queda de performance.',
   },
 ];
 
 export function Diferenciais() {
   return (
-    <section className="py-40 bg-surface-container border-y border-outline-variant/5">
-      <div className="max-w-7xl mx-auto px-8">
-        <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-20 max-w-2xl text-on-surface">
+    <section className="py-16 md:py-24 lg:py-40 bg-surface-container border-y border-outline-variant/5">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <h2 className="text-3xl md:text-4xl lg:text-6xl font-black tracking-tighter mb-12 md:mb-20 max-w-2xl text-on-surface">
           Ao trabalhar comigo você terá...
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {diferenciais.map((item, index) => (
             <motion.div
               key={item.id}
               variants={fadeInUpVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: '-100px' }}
               custom={index}
               transition={{ delay: index * 0.1 }}
               className="group"

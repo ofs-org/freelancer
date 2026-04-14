@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
+import { motion } from 'motion/react';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import type { FAQ } from "@/db/schema";
-import { motion } from "motion/react";
+} from '@/components/ui/accordion';
+import type { FAQ } from '@/db/schema';
 
 interface FAQSectionProps {
   faqs: FAQ[];
@@ -15,9 +15,12 @@ interface FAQSectionProps {
 
 export function FAQSection({ faqs }: FAQSectionProps) {
   return (
-    <section className="py-32 px-8 max-w-4xl mx-auto" id="faq">
+    <section
+      className="py-16 md:py-24 lg:py-32 px-4 md:px-8 max-w-4xl mx-auto"
+      id="faq"
+    >
       <motion.h2
-        className="text-4xl font-black text-center mb-16 text-on-surface"
+        className="text-3xl md:text-4xl font-black text-center mb-10 md:mb-16 text-on-surface"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -39,10 +42,10 @@ export function FAQSection({ faqs }: FAQSectionProps) {
                 value={faq.id}
                 className="bg-surface-container-low rounded-xl border-none"
               >
-                <AccordionTrigger className="p-6 font-bold text-lg flex justify-between items-center cursor-pointer hover:no-underline">
+                <AccordionTrigger className="p-4 md:p-6 font-bold text-base md:text-lg flex justify-between items-center cursor-pointer hover:no-underline">
                   {faq.pergunta}
                 </AccordionTrigger>
-                <AccordionContent className="px-8 pb-8 text-on-surface-variant leading-relaxed">
+                <AccordionContent className="px-4 md:px-8 pb-4 md:pb-8 text-on-surface-variant leading-relaxed">
                   {faq.resposta}
                 </AccordionContent>
               </AccordionItem>

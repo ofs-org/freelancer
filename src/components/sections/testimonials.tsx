@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { motion } from "motion/react";
-import Image from "next/image";
-import { useCallback, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+import { useCallback, useRef, useState } from 'react';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 
 interface Testimonial {
   id: string;
@@ -17,44 +17,44 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    id: "1",
-    nome: "Ricardo Menezes",
-    cargo: "CEO",
-    empresa: "TechFlow",
+    id: '1',
+    nome: 'Ricardo Menezes',
+    cargo: 'CEO',
+    empresa: 'TechFlow',
     imagem:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop',
     depoimento:
-      "A entrega superou todas as expectativas. Não apenas o site ficou lindo, mas a velocidade de carregamento triplicou nossas conversões em menos de um mês.",
+      'A entrega superou todas as expectativas. Não apenas o site ficou lindo, mas a velocidade de carregamento triplicou nossas conversões em menos de um mês.',
   },
   {
-    id: "2",
-    nome: "Ana Luísa",
-    cargo: "Fundadora",
-    empresa: "Lume Studio",
+    id: '2',
+    nome: 'Ana Luísa',
+    cargo: 'Fundadora',
+    empresa: 'Lume Studio',
     imagem:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop',
     depoimento:
-      "Trabalhar com o Sovereign Architect foi a melhor decisão para nossa marca. O entendimento de UX e business é diferenciado.",
+      'Trabalhar com o Sovereign Architect foi a melhor decisão para nossa marca. O entendimento de UX e business é diferenciado.',
   },
   {
-    id: "3",
-    nome: "Marco Silva",
-    cargo: "CTO",
-    empresa: "Inova Digital",
+    id: '3',
+    nome: 'Marco Silva',
+    cargo: 'CTO',
+    empresa: 'Inova Digital',
     imagem:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop',
     depoimento:
-      "A performance do site é impressionante. Conseguimos lidar com 10x mais tráfego sem degradar a experiência do usuário.",
+      'A performance do site é impressionante. Conseguimos lidar com 10x mais tráfego sem degradar a experiência do usuário.',
   },
   {
-    id: "4",
-    nome: "Sofia Oliveira",
-    cargo: "CMO",
-    empresa: "Vertex Brand",
+    id: '4',
+    nome: 'Sofia Oliveira',
+    cargo: 'CMO',
+    empresa: 'Vertex Brand',
     imagem:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop",
+      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop',
     depoimento:
-      "Nosso site sempre foi um problema até trabalhar com eles. Agora somos encontrados no Google e convertemos mais que o dobro.",
+      'Nosso site sempre foi um problema até trabalhar com eles. Agora somos encontrados no Google e convertemos mais que o dobro.',
   },
 ];
 
@@ -128,21 +128,21 @@ export function Testimonials() {
     setCanScrollNext(scrollLeft < scrollWidth - clientWidth - 10);
   }, []);
 
-  const scrollTo = useCallback((direction: "prev" | "next") => {
+  const scrollTo = useCallback((direction: 'prev' | 'next') => {
     if (!scrollRef.current) return;
     const scrollAmount = scrollRef.current.clientWidth;
     scrollRef.current.scrollBy({
-      left: direction === "next" ? scrollAmount : -scrollAmount,
-      behavior: "smooth",
+      left: direction === 'next' ? scrollAmount : -scrollAmount,
+      behavior: 'smooth',
     });
   }, []);
 
   const handleScrollPrev = useCallback(() => {
-    scrollTo("prev");
+    scrollTo('prev');
   }, [scrollTo]);
 
   const handleScrollNext = useCallback(() => {
-    scrollTo("next");
+    scrollTo('next');
   }, [scrollTo]);
 
   return (
@@ -153,7 +153,7 @@ export function Testimonials() {
       <div className="text-center mb-8 md:mb-16">
         <h2
           id="testimonials-title"
-          className="text-3xl md:text-4xl font-black tracking-tight mb-4 text-on-surface"
+          className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight mb-3 md:mb-4 text-on-surface"
         >
           O que nossos parceiros dizem
         </h2>

@@ -1,73 +1,73 @@
-"use client";
+'use client';
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Building2, MousePointerClick, Zap } from 'lucide-react';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 import {
   fadeInUpVariants,
   staggerContainerVariants,
-} from "@/lib/animation-variants";
-import { Building2, MousePointerClick, Zap } from "lucide-react";
-import { motion } from "motion/react";
-import Image from "next/image";
+} from '@/lib/animation-variants';
 
 const beneficios = [
   {
-    id: "velocidade",
+    id: 'velocidade',
     icon: Zap,
-    titulo: "Foco em Velocidade",
+    titulo: 'Foco em Velocidade',
     descricao:
-      "Utilizo frameworks modernos que priorizam a entrega de conteúdo instantânea.",
+      'Utilizo frameworks modernos que priorizam a entrega de conteúdo instantânea.',
   },
   {
-    id: "arquitetura",
+    id: 'arquitetura',
     icon: Building2,
-    titulo: "Arquitetura Limpa",
+    titulo: 'Arquitetura Limpa',
     descricao:
-      "Código escalável e fácil de manter, garantindo que seu site cresça com seu negócio.",
+      'Código escalável e fácil de manter, garantindo que seu site cresça com seu negócio.',
   },
   {
-    id: "cro",
+    id: 'cro',
     icon: MousePointerClick,
-    titulo: "Otimização de Conversão (CRO)",
-    descricao: "Cada pixel é pensado para guiar o usuário até a ação desejada.",
+    titulo: 'Otimização de Conversão (CRO)',
+    descricao: 'Cada pixel é pensado para guiar o usuário até a ação desejada.',
   },
 ];
 
 const imagens = [
   {
-    src: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800",
-    alt: "Team meeting tech",
+    src: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Team meeting tech',
   },
   {
-    src: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800",
-    alt: "Technology coding",
+    src: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Technology coding',
   },
   {
-    src: "https://images.pexels.com/photos/1181243/pexels-photo-1181243.jpeg?auto=compress&cs=tinysrgb&w=800",
-    alt: "Mobile app design",
+    src: 'https://images.pexels.com/photos/1181243/pexels-photo-1181243.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Mobile app design',
   },
   {
-    src: "https://images.pexels.com/photos/261628/pexels-photo-261628.jpeg?auto=compress&cs=tinysrgb&w=800",
-    alt: "Modern office",
+    src: 'https://images.pexels.com/photos/261628/pexels-photo-261628.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Modern office',
   },
 ];
 
 export function EngenhariaValor() {
   return (
-    <section className="py-32 px-8 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+    <section className="py-16 md:py-24 lg:py-32 px-4 md:px-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         <motion.div
           variants={fadeInUpVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: false, margin: '-100px' }}
           className="order-2 lg:order-1"
         >
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-4 pt-12">
+          <div className="grid grid-cols-2 gap-3 md:gap-4">
+            <div className="space-y-3 md:space-y-4 pt-6 md:pt-12">
               <motion.div
                 variants={fadeInUpVariants}
-                className="relative h-64 rounded-xl overflow-hidden shadow-lg"
+                className="relative h-40 md:h-64 rounded-xl overflow-hidden shadow-lg"
               >
                 <div className="absolute inset-0">
                   <Image
@@ -121,7 +121,7 @@ export function EngenhariaValor() {
           variants={staggerContainerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: false, margin: '-100px' }}
           className="order-1 lg:order-2"
         >
           <motion.div variants={fadeInUpVariants}>
@@ -135,7 +135,7 @@ export function EngenhariaValor() {
 
           <motion.h2
             variants={fadeInUpVariants}
-            className="font-heading text-5xl font-black tracking-tighter mb-8 leading-tight text-tertiary"
+            className="font-heading text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter mb-6 md:mb-8 leading-tight text-tertiary"
           >
             Eu desenvolvo experiências digitais que geram resultado.
           </motion.h2>

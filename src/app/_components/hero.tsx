@@ -31,7 +31,7 @@ export function Hero() {
       </div>
 
       <motion.div
-        className="relative z-10 pt-20 px-8 max-w-7xl mx-auto w-full"
+        className="relative z-10 pt-16 md:pt-20 px-4 md:px-8 max-w-7xl mx-auto w-full"
         variants={heroContainerVariants}
         initial="hidden"
         animate="visible"
@@ -40,10 +40,10 @@ export function Hero() {
           <motion.div variants={fadeInUpVariants}>
             <Badge
               variant="outline-primary"
-              className="glass-panel mb-6 gap-4 px-6"
+              className="glass-panel mb-4 md:mb-6 gap-2 md:gap-4 px-3 md:px-6"
             >
               <motion.span
-                className="w-2 h-2 rounded-full bg-primary-container"
+                className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary-container"
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{
                   duration: 2,
@@ -51,7 +51,7 @@ export function Hero() {
                   ease: "easeInOut",
                 }}
               />
-              <span className="font-body text-xs text-white font-extrabold uppercase tracking-[0.2em]">
+              <span className="font-body text-[10px] md:text-xs text-white font-extrabold uppercase tracking-[0.15em] md:tracking-[0.2em]">
                 Lighthouse Score 100/100
               </span>
             </Badge>
@@ -59,14 +59,14 @@ export function Hero() {
 
           <motion.p
             variants={fadeInUpVariants}
-            className="font-body text-xl md:text-2xl text-white/70 leading-relaxed mb-3 font-medium tracking-tight"
+            className="font-body text-base md:text-xl text-white/70 leading-relaxed mb-2 md:mb-3 font-medium tracking-tight"
           >
             Seu site não é apenas um custo.
           </motion.p>
 
           <motion.h1
             variants={fadeInUpVariants}
-            className="font-heading font-extrabold tracking-tighter leading-[0.9] mb-10 text-white text-6xl md:text-8xl"
+            className="font-heading font-extrabold tracking-tighter leading-[0.9] mb-6 md:mb-10 text-white text-4xl sm:text-5xl md:text-6xl lg:text-8xl"
           >
             <span className="block opacity-90 font-bold drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
               Transforme em
@@ -78,7 +78,7 @@ export function Hero() {
 
           <motion.p
             variants={fadeInUpVariants}
-            className="font-body text-lg md:text-2xl text-white/80 leading-[1.6] mb-12 max-w-3xl font-light tracking-wide"
+            className="font-body text-base md:text-lg lg:text-2xl text-white/80 leading-[1.6] mb-8 md:mb-12 max-w-3xl md:max-w-3xl font-light tracking-wide"
           >
             Convertemos visões complexas em interfaces intuitivas que carregam
             em milissegundos.{" "}
@@ -89,7 +89,7 @@ export function Hero() {
 
           <motion.div
             variants={fadeInScaleVariants}
-            className="flex flex-wrap gap-6  mb-8"
+            className="flex flex-wrap gap-3 md:gap-6 mb-6 md:mb-8"
           >
             <motion.div
               variants={buttonHoverVariants}

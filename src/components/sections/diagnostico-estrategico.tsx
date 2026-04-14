@@ -41,12 +41,15 @@ const problemas = [
 
 export function DiagnosticoEstrategico() {
   return (
-    <section id="solucoes" className="relative py-48 overflow-hidden bg-white">
+    <section
+      id="solucoes"
+      className="relative py-16 md:py-32 lg:py-48 overflow-hidden bg-white"
+    >
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,#F0F4E0_0%,transparent_50%)] opacity-40" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
         <motion.div
           variants={staggerContainerVariants}
           initial="hidden"
@@ -65,16 +68,16 @@ export function DiagnosticoEstrategico() {
 
           <motion.h2
             variants={fadeInUpVariants}
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1] "
+            className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 md:mb-8 leading-[1.1]"
           >
             Por que seu site
             <br className="hidden md:block" />
-            <span className="text-ring">não está trazendo clientes?</span>
+            <span className="text-ring"> não está trazendo clientes?</span>
           </motion.h2>
 
           <motion.p
             variants={fadeInUpVariants}
-            className="text-xl md:text-2xl  leading-relaxed font-light max-w-3xl"
+            className="text-base text-balance md:text-xl lg:text-2xl leading-relaxed font-light max-w-3xl md:max-w-3xl"
           >
             No mercado de alto padrão, a excelência não é opcional. Pequenas
             falhas técnicas tornam-se grandes abismos de faturamento.
@@ -99,20 +102,20 @@ export function DiagnosticoEstrategico() {
                 >
                   <Card
                     variant="glass"
-                    className="group border-black/20! p-12 rounded-lg h-136   hover:border-primary/20 transition-all duration-300"
+                    className="group border-black/20! p-6 md:p-12 rounded-lg h-full md:h-136 hover:border-primary/20 transition-all duration-300"
                   >
                     <CardContent className="flex flex-col items-start h-full p-0">
                       <motion.div
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         whileTap={{ scale: 0.96 }}
-                        className="mb-10 w-16 h-16 rounded-2xl bg-primary-subtle flex items-center justify-center group-hover:bg-primary transition-colors duration-500"
+                        className="mb-6 md:mb-10 w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-primary-subtle flex items-center justify-center group-hover:bg-primary transition-colors duration-500"
                       >
                         <Icon className="size-10 text-on-secondary-fixed-variant group-hover:text-on-primary-container transition-colors duration-500" />
                       </motion.div>
 
                       <motion.h3
                         whileHover={{ x: 3 }}
-                        className="text-3xl font-bold mb-6 tracking-tight text-secondary"
+                        className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 tracking-tight text-secondary"
                       >
                         {problema.titulo}
                         <br />

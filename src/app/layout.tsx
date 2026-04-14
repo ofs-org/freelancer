@@ -3,6 +3,7 @@ import { Noto_Serif, Plus_Jakarta_Sans } from 'next/font/google';
 import Script from 'next/script';
 import Footer from '@/components/sections/footer';
 import { Header } from '@/components/sections/header';
+import { StickyCta } from '@/components/ui/sticky-cta';
 import { cn } from '@/lib/utils';
 import './globals.css';
 
@@ -120,6 +121,7 @@ export default function RootLayout({
       />
       <body className="min-h-full flex flex-col font-body">
         <Header />
+        <StickyCta />
         {children}
         <Footer />
       </body>
