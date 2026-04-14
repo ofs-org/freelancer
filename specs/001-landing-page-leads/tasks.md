@@ -67,8 +67,8 @@
 - [X] T024 [US1] Add Schema markup for local business in src/app/layout.tsx
 - [X] T025 [US1] Implement sticky CTA buttons in src/components/ui/sticky-cta.tsx
 - [X] T026 [US1] Add mobile responsive styles and test viewport under 768px
-- [ ] T027 [US1] Implement WhatsApp floating button in src/components/ui/whatsapp-float.tsx
-- [ ] T028 [US1] Add Umami analytics tracking script in src/app/(routes)/layout.tsx
+- [X] T027 [US1] Implement WhatsApp floating button in src/components/ui/whatsapp-float.tsx
+- [X] T028 [US1] Add Umami analytics tracking script in src/app/layout.tsx
 
 **Checkpoint**: User Story 1 fully functional - landing page loads with all sections visible and CTAs working
 

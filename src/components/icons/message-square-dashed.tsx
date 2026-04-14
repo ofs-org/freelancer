@@ -7,42 +7,26 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
-export interface MessageCircleMoreIconHandle {
+export interface MessageSquareDashedIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
 }
 
-interface MessageCircleMoreIconProps extends HTMLAttributes<HTMLDivElement> {
+interface MessageSquareDashedIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
-const DOT_VARIANTS: Variants = {
-  normal: {
-    opacity: 1,
-  },
-  animate: (custom: number) => ({
-    opacity: [1, 0, 0, 1, 1, 0, 0, 1],
-    transition: {
-      opacity: {
-        times: [
-          0,
-          0.1,
-          0.1 + custom * 0.1,
-          0.1 + custom * 0.1 + 0.1,
-          0.5,
-          0.6,
-          0.6 + custom * 0.1,
-          0.6 + custom * 0.1 + 0.1,
-        ],
-        duration: 1.5,
-      },
-    },
+const PATH_VARIANTS: Variants = {
+  normal: { opacity: 1 },
+  animate: (i: number) => ({
+    opacity: [0, 1],
+    transition: { delay: i * 0.1, duration: 0.3 },
   }),
 };
 
-const MessageCircleMoreIcon = forwardRef<
-  MessageCircleMoreIconHandle,
-  MessageCircleMoreIconProps
+const MessageSquareDashedIcon = forwardRef<
+  MessageSquareDashedIconHandle,
+  MessageSquareDashedIconProps
 >(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
   const controls = useAnimation();
   const isControlledRef = useRef(false);
@@ -64,7 +48,7 @@ const MessageCircleMoreIcon = forwardRef<
         controls.start("animate");
       }
     },
-    [controls, onMouseEnter],
+    [controls, onMouseEnter]
   );
 
   const handleMouseLeave = useCallback(
@@ -75,7 +59,7 @@ const MessageCircleMoreIcon = forwardRef<
         controls.start("normal");
       }
     },
-    [controls, onMouseLeave],
+    [controls, onMouseLeave]
   );
 
   return (
@@ -96,30 +80,30 @@ const MessageCircleMoreIcon = forwardRef<
         width={size}
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-        <motion.path
-          animate={controls}
-          custom={0}
-          d="M8 12h.01"
-          variants={DOT_VARIANTS}
-        />
-        <motion.path
-          animate={controls}
-          custom={1}
-          d="M12 12h.01"
-          variants={DOT_VARIANTS}
-        />
-        <motion.path
-          animate={controls}
-          custom={2}
-          d="M16 12h.01"
-          variants={DOT_VARIANTS}
-        />
+        {[
+          "M14 3h1",
+          "M14 17h1",
+          "M10 17H7l-4 4v-7",
+          "M9 3h1",
+          "M19 3a2 2 0 0 1 2 2",
+          "M3 9v1",
+          "M21 9v1",
+          "M21 14v1a2 2 0 0 1-2 2",
+          "M5 3a2 2 0 0 0-2 2",
+        ].map((d, index) => (
+          <motion.path
+            animate={controls}
+            custom={index + 1}
+            d={d}
+            key={d}
+            variants={PATH_VARIANTS}
+          />
+        ))}
       </svg>
     </div>
   );
 });
 
-MessageCircleMoreIcon.displayName = "MessageCircleMoreIcon";
+MessageSquareDashedIcon.displayName = "MessageSquareDashedIcon";
 
-export { MessageCircleMoreIcon };
+export { MessageSquareDashedIcon };

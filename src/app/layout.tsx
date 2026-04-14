@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
 import { Noto_Serif, Plus_Jakarta_Sans } from 'next/font/google';
 import Script from 'next/script';
+import { UmamiProvider } from '@/components/providers/umami-provider';
 import Footer from '@/components/sections/footer';
 import { Header } from '@/components/sections/header';
 import { StickyCta } from '@/components/ui/sticky-cta';
+import { UmamiScript } from '@/components/ui/umami-script';
+import { WhatsAppFloat } from '@/components/ui/whatsapp-float';
 import { cn } from '@/lib/utils';
 import './globals.css';
 
@@ -119,9 +122,12 @@ export default function RootLayout({
         // eslint-disable-next-line security/dangerouslySetInnerHTML
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <UmamiScript websiteId={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID} />
+      <UmamiProvider />
       <body className="min-h-full flex flex-col font-body">
         <Header />
         <StickyCta />
+        <WhatsAppFloat />
         {children}
         <Footer />
       </body>

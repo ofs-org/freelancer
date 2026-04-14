@@ -7,12 +7,12 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
-export interface MessageCircleMoreIconHandle {
+export interface MessageSquareMoreIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
 }
 
-interface MessageCircleMoreIconProps extends HTMLAttributes<HTMLDivElement> {
+interface MessageSquareMoreIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
@@ -40,9 +40,9 @@ const DOT_VARIANTS: Variants = {
   }),
 };
 
-const MessageCircleMoreIcon = forwardRef<
-  MessageCircleMoreIconHandle,
-  MessageCircleMoreIconProps
+const MessageSquareMoreIcon = forwardRef<
+  MessageSquareMoreIconHandle,
+  MessageSquareMoreIconProps
 >(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
   const controls = useAnimation();
   const isControlledRef = useRef(false);
@@ -64,7 +64,7 @@ const MessageCircleMoreIcon = forwardRef<
         controls.start("animate");
       }
     },
-    [controls, onMouseEnter],
+    [controls, onMouseEnter]
   );
 
   const handleMouseLeave = useCallback(
@@ -75,7 +75,7 @@ const MessageCircleMoreIcon = forwardRef<
         controls.start("normal");
       }
     },
-    [controls, onMouseLeave],
+    [controls, onMouseLeave]
   );
 
   return (
@@ -96,23 +96,23 @@ const MessageCircleMoreIcon = forwardRef<
         width={size}
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
         <motion.path
           animate={controls}
           custom={0}
-          d="M8 12h.01"
+          d="M8 10h.01"
           variants={DOT_VARIANTS}
         />
         <motion.path
           animate={controls}
           custom={1}
-          d="M12 12h.01"
+          d="M12 10h.01"
           variants={DOT_VARIANTS}
         />
         <motion.path
           animate={controls}
           custom={2}
-          d="M16 12h.01"
+          d="M16 10h.01"
           variants={DOT_VARIANTS}
         />
       </svg>
@@ -120,6 +120,6 @@ const MessageCircleMoreIcon = forwardRef<
   );
 });
 
-MessageCircleMoreIcon.displayName = "MessageCircleMoreIcon";
+MessageSquareMoreIcon.displayName = "MessageSquareMoreIcon";
 
-export { MessageCircleMoreIcon };
+export { MessageSquareMoreIcon };
