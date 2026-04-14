@@ -55,12 +55,12 @@
 
 ### Implementation for User Story 1
 
-- [ ] T015 [P] [US1] Create Hero section component in src/components/sections/hero.tsx
-- [ ] T016 [P] [US1] Create Benefits section component in src/components/sections/beneficios.tsx
-- [ ] T017 [P] [US1] Create Diferenciais section component in src/components/sections/diferenciais.tsx
-- [ ] T018 [P] [US1] Create Processo section component in src/components/sections/processo.tsx
-- [ ] T019 [P] [US1] Create Prova Social section component in src/components/sections/prova-social.tsx
-- [ ] T020 [P] [US1] Create FAQ section component in src/components/sections/faq.tsx
+- [X] T015 [P] [US1] Create Hero section component in src/components/sections/hero.tsx
+- [X] T016 [P] [US1] Create Benefits section component in src/components/sections/beneficios.tsx
+- [X] T017 [P] [US1] Create Diferenciais section component in src/components/sections/diferenciais.tsx
+- [X] T018 [P] [US1] Create Processo section component in src/components/sections/processo.tsx
+- [X] T019 [P] [US1] Create Prova Social section component in src/components/sections/testimonials.tsx
+- [X] T020 [P] [US1] Create FAQ section component in src/components/sections/faq.tsx
 - [ ] T021 [P] [US1] Create Footer section component in src/components/sections/footer.tsx
 - [ ] T022 [US1] Implement main landing page in src/app/(routes)/page.tsx
 - [ ] T023 [US1] Add SEO metadata (title, description, Open Graph) in src/app/(routes)/layout.tsx

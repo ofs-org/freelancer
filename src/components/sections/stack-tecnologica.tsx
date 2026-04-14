@@ -137,7 +137,7 @@ export function StackTecnologica() {
                     {item.tags?.map((tag) => (
                       <span
                         key={tag}
-                        className="bg-surface-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-on-surface-variant"
+                        className="bg-on-surface-variant px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-primary"
                       >
                         {tag}
                       </span>
