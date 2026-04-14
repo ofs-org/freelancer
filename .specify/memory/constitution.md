@@ -25,19 +25,30 @@ Testes unitários e E2E serão implementados apenas após a finalização do MVP
 - Sem testes automáticos durante desenvolvimento do MVP
 - Priorizar simplicidade e manutenibilidade sobre otimização prematura
 - Código deve ser testável mesmo sem testes formais durante a fase inicial
-- Dependencies must have clear purpose and minimal footprint
+- Dependências devem ter propósito claro e pegada mínima
+
+## Métricas de Negócio vs Requisitos Técnicos
+
+As métricas de negócio (KPIs) são resultados mensuráveis **após** o lançamento do produto, não requisitos de desenvolvimento. Estas métricas **NÃO** devem ser tratadas como tasks de implementação:
+
+| Tipo | Exemplos | Ação |
+|------|----------|------|
+| **KPIs de Negócio** | Taxa de conversão >3%, tempo médio na página >1min, 5 leads/semana | Tracking pós-lançamento via analytics |
+| **Métricas Técnicas** | Lighthouse >90, tempo de resposta <3s, email <5min | Requisitos técnicos válidos |
+
+Esta distinção garante que o escopo MVP permaneça focado em funcionalidade, não em otimização prematura.
 
 ## Fluxo de Desenvolvimento
 
 - MVP primeiro: funcionalidade core antes de refinamentos
 - Validar manualmente em cada etapa antes de avançar
 - Código limpo desde o início para facilitar testes posteriores
-- Acessibilidade verificada em cada componente新的 UI
+- Acessibilidade verificada em cada novo componente de UI
 
 ## Referências
 
 Ao criar componentes UI, consulte:
-- **Design Tokens**: `.docs/design-tokens.md` - Cores, fontes, shadowss
+- **Design Tokens**: `.docs/design-tokens.md` - Cores, fontes, shadows
 - **UI Patterns**: `.docs/ui-patterns.md` - Padrões de componentes com CVA
 - **Acessibilidade**: `.docs/accessibility.md` - Boas práticas WCAG 2.1 AA
 

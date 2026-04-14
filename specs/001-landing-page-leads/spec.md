@@ -153,16 +153,21 @@ Como potencial cliente que prefere outras formas de contato, ao navegar até a p
 
 ## Success Criteria
 
-### Measurable Outcomes
+### Technical Requirements (Buildable)
+
+- **SC-005**: O site deve ter Lighthouse score superior a 90 em performance, accessibility, best practices e SEO
+- **SC-006**: O formulário de orçamento deve confirmar envio em menos de 3 segundos após submissão
+- **SC-007**: O email com checklist deve ser enviado em até 5 minutos após cadastro
+- **SC-008**: A IA deve responder dúvidas em menos de 10 segundos
+
+### Business KPIs (Post-MVP Tracking)
+
+> ⚠️ Estas métricas são resultados de negócio que devem ser rastreadas **após o lançamento** via analytics, não como tasks de desenvolvimento MVP.
 
 - **SC-001**: Taxa de conversão da página deve ser superior a 3% (relação visitantes que preenchem formulário / visitantes únicos)
 - **SC-002**: Tempo médio na página deve ser superior a 1 minuto
 - **SC-003**: Taxa de clique nos botões de CTA deve ser superior a 5%
 - **SC-004**: A página deve gerar mais de 5 leads por semana
-- **SC-005**: O site deve ter Lighthouse score superior a 90 em performance, accessibility, best practices e SEO
-- **SC-006**: O formulário de orçamento deve confirmar envio em menos de 3 segundos após submissão
-- **SC-007**: O email com checklist deve ser enviado em até 5 minutos após cadastro
-- **SC-008**: A IA deve responder dúvidas em menos de 10 segundos
 
 ## Assumptions
 

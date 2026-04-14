@@ -32,6 +32,8 @@ Landing page profissional para captação de leads para serviços de criação d
 
 **Gates**: Todos passaram. Nenhuma violação identificada.
 
+> **Nota sobre Success Criteria**: SC-001 a SC-004 são KPIs de negócio (rastreadas pós-lançamento via analytics). SC-005 a SC-008 são requisitos técnicos de implementação.
+
 ## Project Structure
 
 ### Documentation (this feature)
@@ -48,30 +50,53 @@ specs/001-landing-page-leads/
 
 ### Source Code (repository root)
 
-```text
+```
 src/
-├── app/                 # Next.js App Router
-│   ├── (routes)/        # Route groups
-│   │   ├── page.tsx    # Landing page
-│   │   ├── portfolio/  # Portfolio page
-│   │   └── contato/    # Contact page
-│   ├── api/            # API routes
-│   │   ├── leads/      # Lead capture endpoints
-│   │   ├── checklist/ # Checklist download endpoint
-│   │   └── chat/       # AI chat endpoint
-│   ├── components/     # React components
-│   │   ├── ui/         # shadcn-ui components
-│   │   ├── forms/      # Form components
-│   │   └── sections/   # Page sections
-│   ├── lib/            # Utilities
-│   │   ├── db.ts       # Drizzle client
-│   │   ├── auth.ts     # Better Auth config
-│   │   └── email.ts    # Resend helpers
-│   └── actions/        # Server actions
-├── db/
-│   ├── schema.ts       # Drizzle schema
-│   └── migrations/     # DB migrations
-└── public/             # Static assets
+├── app/                      # Next.js App Router (páginas flat, sem route groups)
+│   ├── page.tsx             # Landing page principal
+│   ├── projects/            # Portfolio page
+│   ├── contacts/            # Contact page
+│   ├── design/              # Design/Stitch page
+│   ├── privacy-policy/      # Privacy policy page
+│   ├── api/
+│   │   └── auth/            # Better Auth endpoints
+│   │       └── [...auth]/
+│   ├── layout.tsx           # Root layout
+│   ├── not-found.tsx        # 404 customizado
+│   └── _components/         # Componentes específicos da página
+│       ├── hero.tsx
+│       └── stats-bar.tsx
+├── components/
+│   ├── ui/                  # shadcn-ui + componentes base (Button, Input, Card...)
+│   ├── sections/            # Seções da página (Hero, Footer, FAQ...)
+│   ├── forms/               # Formulários (orçamento, checklist, contato)
+│   ├── chat/                # Componentes de chat com IA
+│   ├── icons/               # Ícones customizados (Lucide)
+│   └── providers/           # React providers (Analytics, Auth...)
+├── lib/                     # Utilities e configurações
+│   ├── db.ts                # Drizzle client
+│   ├── auth.ts              # Better Auth config
+│   ├── email.ts             # Resend helpers
+│   ├── email/               # Email templates
+│   │   └── templates/
+│   │       └── checklist.tsx
+│   ├── ai.ts                # Vercel AI SDK config
+│   ├── schemas.ts           # Zod schemas + validação
+│   ├── utils.ts             # Utils (cn, formatters)
+│   ├── umami.ts             # Analytics helpers
+│   ├── errors.ts            # Error handling
+│   ├── logger.ts            # Logging
+│   └── animation-variants.ts # Motion patterns
+├── actions/                 # Server actions
+│   ├── checklist.ts         # Action para checklist
+│   └── faqs.ts              # Action para FAQs
+├── db/                      # Database
+│   └── schema.ts            # Drizzle schema (leads, projetos, faqs)
+├── data/                    # Seed data
+│   ├── seed-runner.ts       # Runner para popular DB
+│   └── faq-seed.ts          # FAQs iniciais
+└── utils/                   # Utils misc
+    └── counter.ts           # Contadores utilitários
 ```
 
 **Structure Decision**: Monolito Next.js com App Router, Drizzle ORM para PostgreSQL, API routes para backend.

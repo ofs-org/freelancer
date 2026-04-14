@@ -62,7 +62,7 @@
 - [X] T019 [P] [US1] Create Prova Social section component in src/components/sections/testimonials.tsx
 - [X] T020 [P] [US1] Create FAQ section component in src/components/sections/faq.tsx
 - [X] T021 [P] [US1] Create Footer section component in src/components/sections/footer.tsx
-- [X] T022 [US1] Implement main landing page in src/app/(routes)/page.tsx
+- [X] T022 [US1] Implement main landing page in src/app/page.tsx
 - [X] T023 [US1] Add SEO metadata (title, description, Open Graph) in src/app/layout.tsx
 - [X] T024 [US1] Add Schema markup for local business in src/app/layout.tsx
 - [X] T025 [US1] Implement sticky CTA buttons in src/components/ui/sticky-cta.tsx
@@ -149,7 +149,7 @@
 
 ### Implementation for User Story 5
 
-- [ ] T057 [P] [US5] Create portfolio page in src/app/(routes)/portfolio/page.tsx
+- [ ] T057 [P] [US5] Create portfolio page in src/app/projects/page.tsx
 - [ ] T058 [P] [US5] Create project card component in src/components/sections/portfolio-card.tsx
 - [ ] T059 [P] [US5] Create project grid component in src/components/sections/portfolio-grid.tsx
 - [ ] T060 [P] [US5] Add seed data for 3-5 demo projects in src/data/portfolio-seed.ts
@@ -168,7 +168,7 @@
 
 ### Implementation for User Story 6
 
-- [ ] T063 [P] [US6] Create contact page in src/app/(routes)/contato/page.tsx
+- [ ] T063 [P] [US6] Create contact page in src/app/contacts/page.tsx
 - [ ] T064 [P] [US6] Create contact info component with email and phone in src/components/sections/contato-info.tsx
 - [ ] [T065] [P] [US6] Create WhatsApp link with pre-filled message in src/components/ui/whatsapp-link.tsx
 - [ ] T066 [US6] Create contact form component in src/components/forms/contato-form.tsx
@@ -184,13 +184,47 @@
 
 - [ ] T068 [P] Add favicon and manifest.json for PWA capabilities in src/app/
 - [ ] T069 [P] Add 404 error page in src/app/not-found.tsx
-- [ ] T070 [P] Add loading.tsx skeletons for better UX in src/app/(routes)/
+- [ ] T070 [P] Add loading.tsx skeletons for better UX in src/app/
 - [ ] T071 Verify all pages pass Lighthouse accessibility audit (WCAG 2.1 AA)
 - [ ] T072 Test forms with invalid data and edge cases
 - [ ] T073 Test responsive behavior across all breakpoints (mobile, tablet, desktop)
 - [ ] T074 Run quickstart.md validation
 - [ ] T075 [P] Optimize images using next/image in all sections
 - [ ] T076 Verify SEO meta tags and Open Graph on all public pages
+
+---
+
+## Phase 10: Analytics & Tracking (Post-MVP)
+
+**Purpose**: Tracking infrastructure para KPIs de negócio (SC-001 a SC-004)
+
+> ⚠️ Estas tasks implementam a infraestrutura de tracking. Os KPIs reais serão medidos após o lançamento.
+
+- [ ] T077 [P] [US1] Create Umami event tracking helper in src/lib/analytics.ts (trackEvent, trackPageView)
+- [ ] T078 [US1] Add page view tracking for all routes in src/app/layout.tsx
+- [ ] T079 [US2] Track orçamento form submit event in orcamento-form.tsx
+- [ ] T080 [US2] Track CTA button click events (budget buttons) in sticky-cta.tsx
+- [ ] T081 [US3] Track checklist download completion in checklist-form.tsx
+- [ ] T082 [US4] Track AI chat opens and messages sent in ai-chat-dialog.tsx
+- [ ] T083 [US5] Track portfolio page views and project clicks
+- [ ] T084 [US6] Track contact page views and form submissions
+- [ ] T085 [P] Add scroll depth tracking (50%, 75%, 100%) in use-umami-track-scroll.tsx
+- [ ] T086 [P] Add WhatsApp button click tracking in whatsapp-float.tsx
+- [ ] T087 Create analytics dashboard configuration in Umami (optional)
+
+---
+
+## Phase 11: Performance Optimization (Lighthouse >90)
+
+**Purpose**: Otimizações para atingir SC-005 (Lighthouse >90)
+
+- [ ] T088 [P] Run Lighthouse audit and identify bottlenecks
+- [ ] T089 [P] Optimize images: add width/height, use WebP format, lazy loading
+- [ ] T090 [P] Implement Next.js built-in optimizations (font optimization, script optimization)
+- [ ] T091 Add proper caching headers for static assets
+- [ ] T092 Verify Core Web Vitals: LCP <2.5s, FID <100ms, CLS <0.1
+- [ ] T093 Minify CSS/JS production bundle
+- [ ] T094 Run accessibility audit and fix issues
 
 ---
 
